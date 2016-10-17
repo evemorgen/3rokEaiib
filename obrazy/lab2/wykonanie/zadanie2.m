@@ -51,8 +51,8 @@ function nowyObraz = zadanie2(nazwa, skalaX, skalaY)
             %% 9. A to tak na prawd? f(A) itd.
             A = obraz(staryPikselYfloor + 1, staryPikselXfloor + 1);
             B = obraz(staryPikselYfloor + 1, staryPikselXfloor + 2);
-            C = obraz(staryPikselYfloor + 2, staryPikselXfloor + 1);
-            D = obraz(staryPikselYfloor + 2, staryPikselXfloor + 2);
+            C = obraz(staryPikselYfloor + 2, staryPikselXfloor + 2);
+            D = obraz(staryPikselYfloor + 2, staryPikselXfloor + 1);
             
             %% 10. Zrobienie zakresu od 0 do 1
             xOdZeroDoJeden = staryPikselX - staryPikselXfloor;

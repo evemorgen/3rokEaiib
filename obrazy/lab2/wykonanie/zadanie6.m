@@ -1,9 +1,9 @@
 % zadanie 6
 
 %function nowyObraz = zadanie6(nazwa, skalaX, skalaY)
-    skalaX = 1.1;
-    skalaY = 1.1;
-    nazwa = 'lena.bmp';
+    skalaX = 5;
+    skalaY = 5;
+    nazwa = 'clock.bmp';
     close all;
     %% 2. Wczytaj i wy?wietl obraz
 
@@ -28,6 +28,8 @@
     xStep = stareX / noweX;
     yStep = stareY / noweY;
 
+    
+    loadA = load('a1.mat');
     
     %% 5. przeforowanie przez obraz
     for pikselY = 0:(noweY - 1)
@@ -55,26 +57,26 @@
             %% 9. A to tak na prawd? f(A) itd.
             A = obraz(staryPikselYfloor, staryPikselXfloor);
             B = obraz(staryPikselYfloor, staryPikselXfloor + 1);
-            C = obraz(staryPikselYfloor + 1, staryPikselXfloor);
-            D = obraz(staryPikselYfloor + 1, staryPikselXfloor + 1);
+            D = obraz(staryPikselYfloor + 1, staryPikselXfloor);
+            C = obraz(staryPikselYfloor + 1, staryPikselXfloor + 1);
             
             Ay = (obraz(staryPikselYfloor, staryPikselXfloor + 1) - obraz(staryPikselYfloor, staryPikselXfloor-1))/2;
             By = (obraz(staryPikselYfloor, staryPikselXfloor + 1 + 1) - obraz(staryPikselYfloor, staryPikselXfloor + 1 - 1 ))/2;
-            Cy = (obraz(staryPikselYfloor + 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor + 1, staryPikselXfloor-1))/2;
-            Dy = (obraz(staryPikselYfloor + 1, staryPikselXfloor + 1 + 1) - obraz(staryPikselYfloor + 1, staryPikselXfloor + 1 -1))/2;
+            Dy = (obraz(staryPikselYfloor + 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor + 1, staryPikselXfloor-1))/2;
+            Cy = (obraz(staryPikselYfloor + 1, staryPikselXfloor + 1 + 1) - obraz(staryPikselYfloor + 1, staryPikselXfloor + 1 -1))/2;
             
             Ax = (obraz(staryPikselYfloor + 1, staryPikselXfloor) - obraz(staryPikselYfloor - 1, staryPikselXfloor))/2;
             Bx = (obraz(staryPikselYfloor + 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor - 1, staryPikselXfloor + 1))/2;
-            Cx = (obraz(staryPikselYfloor + 1 + 1, staryPikselXfloor) - obraz(staryPikselYfloor + 1 - 1, staryPikselXfloor))/2;
-            Dx = (obraz(staryPikselYfloor + 1 + 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor + 1 - 1, staryPikselXfloor + 1))/2;
+            Dx = (obraz(staryPikselYfloor + 1 + 1, staryPikselXfloor) - obraz(staryPikselYfloor + 1 - 1, staryPikselXfloor))/2;
+            Cx = (obraz(staryPikselYfloor + 1 + 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor + 1 - 1, staryPikselXfloor + 1))/2;
             
             Axy = (obraz(staryPikselYfloor + 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor - 1, staryPikselXfloor) - obraz(staryPikselYfloor, staryPikselXfloor - 1) + obraz(staryPikselYfloor, staryPikselXfloor))/4;
             Bxy = (obraz(staryPikselYfloor + 1, staryPikselXfloor + 1 + 1) - obraz(staryPikselYfloor - 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor, staryPikselXfloor - 1 + 1) + obraz(staryPikselYfloor, staryPikselXfloor + 1))/4;
-            Cxy = (obraz(staryPikselYfloor + 1 + 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor - 1 + 1, staryPikselXfloor) - obraz(staryPikselYfloor + 1, staryPikselXfloor - 1) + obraz(staryPikselYfloor + 1, staryPikselXfloor))/4;
-            Dxy = (obraz(staryPikselYfloor + 1 + 1, staryPikselXfloor + 1 + 1) - obraz(staryPikselYfloor - 1 + 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor + 1, staryPikselXfloor - 1 + 1) + obraz(staryPikselYfloor + 1, staryPikselXfloor + 1))/4;
+            Dxy = (obraz(staryPikselYfloor + 1 + 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor - 1 + 1, staryPikselXfloor) - obraz(staryPikselYfloor + 1, staryPikselXfloor - 1) + obraz(staryPikselYfloor + 1, staryPikselXfloor))/4;
+            Cxy = (obraz(staryPikselYfloor + 1 + 1, staryPikselXfloor + 1 + 1) - obraz(staryPikselYfloor - 1 + 1, staryPikselXfloor + 1) - obraz(staryPikselYfloor + 1, staryPikselXfloor - 1 + 1) + obraz(staryPikselYfloor + 1, staryPikselXfloor + 1))/4;
             
-            x = transpose([A B D C Ax Bx Dx Cx Ay By Dy Cy Axy Bxy Dxy Cxy]);
-            loadA = load('a1.mat');
+            x = [A ;B ;D ;C ;Ax ;Bx ;Dx ;Cx ;Ay ;By ;Dy ;Cy ;Axy ;Bxy ;Dxy ;Cxy];
+            
             duzeA = loadA(1).A1;
             
             a = duzeA * x;
@@ -87,16 +89,16 @@
             
             for i = 0:3
                 for j = 0:3
-                    sum = sum + a(4*j+i+1)*(yOdZeroDoJeden^i)*(xOdZeroDoJeden^j);
+                    sum = sum + a(2*j+i+1)*((yOdZeroDoJeden)^i)*((xOdZeroDoJeden)^j);
                 end
             end
             
             %% 11. wrzucenie do nowego obrazu
-            nowyObraz(pikselY+1, pikselX+1) = sum;
+            nowyObraz(pikselY+1, pikselX+1) =  sum;
         end
     end
     
     %% 12. Pokazanie nowego obrazu, fuj.
     figure;
-    imshow(nowyObraz);
+    imshow(nowyObraz, []);
 %end
