@@ -1,6 +1,6 @@
 -module(lab1).
 
--export([area/1, volume/1, len/1, amin/1, amax/1, tmin_max/1, lmin_max/1, lista_pol/1, listaN/1, lista_jedynek/1, lista_elementow/2, to_kelvin/1, to_newton/1, to_rankine/1, to_celcius/1, to_fahrenheit/1]).
+-export([area/1, volume/1, len/1, amin/1, amax/1, tmin_max/1, lmin_max/1, lista_pol/1, listaN/1, lista_jedynek/1, lista_elementow/2, temp_conv/2]).
 
 %
 % Zadanie 1.
@@ -76,23 +76,17 @@ listaN(N) -> lists:reverse(lists:seq(1, N)).
 %
 % Zadanie 9.
 %
-to_kelvin({c, C}) -> 273.15 + C;
-to_kelvin({f, F}) -> (F + 459.67) * 5/9;
-to_kelvin({n, N}) -> (N/0.33000) + 273.14;
-to_kelvin({r, R}) -> R * 5/9;
-to_kelvin({k, K}) -> K.
+temp_conv({c, C}, k) -> {k, 273.15 + C};
+temp_conv({f, F}, k) -> {k, (F + 459.67) * 5/9};
+temp_conv({n, N}, k) -> {k, (N/0.33000) + 273.14};
+temp_conv({r, R}, k) -> {k, R * 5/9};
+temp_conv({k, K}, k) -> {k, K};
 
-to_celcius({k, K}) -> K - 273.15;
-to_celcius({OTHER, Value}) -> to_celcius({k, to_kelvin({OTHER,Value})}).
-
-to_fahrenheit({k, K}) -> (K - 273.15)*1.8 + 32;
-to_fahrenheit({OTHER, Value}) -> to_fahrenheit({k, to_kelvin({OTHER, Value})}).
-
-to_newton({k, K}) -> (K - 273.15)*0.33;
-to_newton({OTHER, Value}) -> to_newton({k, to_kelvin({OTHER, Value})}).
-
-to_rankine({k, K}) -> K * 9/5;
-to_rankine({OTHER, Value}) -> to_rankine({k, to_kelvin({OTHER, Value})}).
+temp_conv({k, K}, c) -> {c, K - 273.15};
+temp_conv({k, K}, f) -> {f, (K - 273.15)*1.8 + 32};
+temp_conv({k, K}, n) -> {n, (K - 273.15)*0.33};
+temp_conv({k, K}, r) -> {r, K * 9/5};
+temp_conv({OTHER, Value}, Target) -> temp_conv(temp_conv({OTHER, Value}, k), Target).
 
 %
 % Zadanie 10.
