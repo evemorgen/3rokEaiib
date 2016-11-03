@@ -78,4 +78,6 @@ concurrentSort({_, Lista}) ->
     {self(),Zmerdzowane};
 concurrentSort(Lista) -> concurrentSort({self(), Lista}).
 
+plus_dwa(A) -> A + 2.
+
 
