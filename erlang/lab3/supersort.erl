@@ -35,6 +35,7 @@ superQsort([Piwo|Reszta]) ->
         [Piwo] ++
         superQsort([ X || X <- Reszta, X >= Piwo]).
 
+%nie działa
 superConcurentQsort(PID, []) -> PID ! [];
 superConcurentQsort(PID, [Piwo|Reszta]) ->
     spawn(supersort, superConcurentQsort, [self(), [ X || X <- Reszta, X < Piwo]]),
@@ -63,7 +64,7 @@ merge(C, B, A) ->
            merge(C, BezB, A++[FirstB])
     end.
 
-
+%nie działa
 concurrentSort({PID,[]}) -> io:format('ZEROELEMENTOWA []~n'), PID ! {self(), []};
 concurrentSort({PID,[A]}) -> io:format('JEDNOELEMENTOWA ~p PID ~p~n', [A, PID]), PID ! {self(), [A]};
 concurrentSort({PID, [A, B]}) ->
