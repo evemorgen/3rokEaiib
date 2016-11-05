@@ -35,6 +35,13 @@ superQsort([Piwo|Reszta]) ->
         [Piwo] ++
         superQsort([ X || X <- Reszta, X >= Piwo]).
 
+superConcurentQsort(PID, []) -> PID ! [];
+superConcurentQsort(PID, [Piwo|Reszta]) ->
+    spawn(supersort, superConcurentQsort, [self(), [ X || X <- Reszta, X < Piwo]]),
+    spawn(supersort, superConcurentQsort, [self(), [ X || X <- Reszta, X >= Piwo]]),
+    PID ! (receive x -> x end) ++ Piwo ++ (receive y -> y end).
+
+
 czasySortowania(N) ->
     Lista = random_list(N),
     {Czas1, _} = timer:tc(supersort, bombelkowe, [Lista]),

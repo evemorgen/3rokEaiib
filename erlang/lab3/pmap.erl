@@ -4,6 +4,8 @@
 random_list(N) ->
     [rand:uniform(9) || _ <- lists:seq(1, N)].
 
+add_thirteen(X) -> X + 13.
+
 do_and_send(PID, Fun, Arg) ->
     PID ! Fun(Arg).
 
@@ -14,8 +16,6 @@ awesome_map(_, [], Ile) ->
 awesome_map(Fun, [Pocz | Reszta], Ile) ->
     spawn(pmap, do_and_send, [self(), Fun, Pocz]),
     awesome_map(Fun, Reszta, Ile).
-
-add_thirteen(X) -> X + 13.
 
 czasyMapowania(Fun, N) ->
     Lista = random_list(N),
