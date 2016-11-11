@@ -1,5 +1,0 @@
-%% zadania B
-
-%% 1. czyścimy
-close all;
-clearvars;
