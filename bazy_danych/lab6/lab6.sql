@@ -116,15 +116,35 @@ select * from klienci where nazwa like '%Matusiak%';
 
 6.5.2 ★ klientach o identyfikatorze większym niż 91,
 delete from klienci where idklienta > 91;
+
 6.5.3 ★ czekoladkach, których koszt jest większy lub równy 0.45 lub masa jest większa lub równa 36, lub masa jest równa 0.
 delete from czekoladki where koszt >= 0.45 or masa >= 36 or masa = 0;
 
 6.6.1 Napisz skrypt zawierający instrukcje INSERT wstawiające do bazy danych Cukiernia dwa nowe rekordy do tabeli Pudelka oraz odpowiednie rekordy związane z tymi pudełkami do tabeli Zawartosc. Każde z nowych pudełek ma zawierać łącznie co najmniej 10 czekoladek, w co najmniej 4 różnych smakach.
+insert into pudelka values ('dupa', 'Super pudełko', 'To jest super pudełko', 99.00, 0);
+insert into zawartosc values ('dupa', 'b06', 2);
+insert into zawartosc values ('dupa', 'd11', 2);
+insert into zawartosc values ('dupa', 'f01', 4);
+insert into zawartosc values ('dupa', 'm01', 4);
 
-6.7.2 ★ Polecenie COPY pozwala m.in. kopiowanie danych między bazą danych i standardowym systemem plików. Polecenie COPY FROM kopiuje dane z pliku do wskazanej tabeli. Domyślnie wartości atrybutów są oddzielane tabulatorem, zaś NULL jest oznaczany symbolem \N. Polecenie COPY TO kopiuje dane z bazy danych (cała tabela, wybrane kolumny lub wynik instrukcji SELECT) do pliku. Opcje polecenia pozwalają zdefiniować m.in. separator, oznaczenia wartości null, oznaczenie napisu pustego itp. http://www.postgresql.org/docs/9.1/static/sql-copy.html
-
-6.7.2 ★ Napisz skrypt zawierający instrukcje COPY wstawiające do bazy danych cukiernia dwa nowe rekordy do tabeli pudelka oraz odpowiednie rekordy związane z tymi pudełkami do tabeli zawartosc. Każde z nowych pudełek ma zawierać łącznie co najmniej 10 czekoladek, w co najmniej 4 różnych smakach.
+insert into pudelka values ('pupa', 'Super pudełko2', 'To jest super pudełko2', 77.00, 1);
+insert into zawartosc values ('pupa', 'd09', 1);
+insert into zawartosc values ('pupa', 'd08', 3);
+insert into zawartosc values ('pupa', 'd07', 3);
+insert into zawartosc values ('pupa', 'd06', 3);
+psql -a -f skrypt1.sql
 
 6.8.1 Napisz instrukcję UDPATE, która dla pudełek dodanych w poprzednich dwóch zadaniach, zwiększa o 1 liczbę czekoladek każdego smaku, które w nich występują.
+update zawartosc set sztuk = sztuk + 1 where idpudelka in ('dupa', 'pupa');
+
 6.8.2 Napisz skrypt zawierający instrukcje UPDATE, które modyfikują tabelę czekoladki zastępując w kolumnach: czekolada, orzechy i nadzienie wartości Null wartością “brak”.
+update czekoladki set czekolada = 'brak' where czekolada is null;
+update czekoladki set orzechy = 'brak' where orzechy is null;
+update czekoladki set nadzienie = 'brak' where nadzienie is null;
+psql -a -f skrypt2.sql
+
 6.8.3 ★ Napisz skrypt zawierający instrukcje UPDATE, które anulują zmiany wprowadzone w poprzednim punkcie.
+update czekoladki set czekolada = null where czekolada = 'brak';
+update czekoladki set orzechy = null where orzechy = 'brak';
+update czekoladki set nadzienie = null where nadzienie = 'brak';
+psql -a -f skrypt3.sql
