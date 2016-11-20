@@ -1,0 +1,245 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[fleqn]{amsmath}
+\usepackage{tgtermes}
+
+\usepackage[
+pdftitle={Lingwistyka Formalna i Automaty},
+pdfauthor={evemorgen, AGH},
+colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,bookmarks=true,
+bookmarksopenlevel=2]{hyperref}
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+}
+
+
+% custom footers and headers
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{Assignment \textnumero{} 1}
+\cfoot{}
+\rfoot{Page \thepage\ /\ \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%
+
+%%%----------%%%----------%%%----------%%%----------%%%
+
+\begin{document}
+
+\title{Lingwistyka Formalna i Automaty - ćwiczenia 1}
+\author{evemorgen, AGH}
+\date{12/11/2016}
+\maketitle
+
+\section*{Definicje}
+\flushleft
+
+\begin{flalign*}
+&V^{0} = \{\epsilon\} \\
+&V^{i + 1} = \{ wv : w \in V^{i} \wedge v \in V\}, i \in \mathbb{N} \\
+&\\
+&V^{*}  = \bigcup_{i = 0}^{ +inf } V^{i}
+\end{flalign*}
+
+\newpage
+\section{Dla podanych alfabetów wyznacz $V^2$ i $V^3$}
+\subsection{V = \{0,1\}}
+
+\begin{flalign*}
+&V = \{0,1\} \\
+&V^{1} = \{0,1\} \\
+&V^{2} = \{ wv : w \in V^{1} \wedge v \in V\} \\
+&V^{2} = \{00, 01, 10, 11\} \\
+&V^{3} = \{ wv : w \in V^{2} \wedge v \in V\} \\
+&V^{3} = \{000, 010, 100, 110, 001, 011, 101, 111\}
+\end{flalign*}
+
+\subsection{V = \{@, \#, \$\}}
+\begin{flalign*}
+&V = \{ @,\#,\$\} \\
+&V^{1} = \{@, \#, \$\} \\
+&V^{2} = \{ wv : w \in V^{1} \wedge v \in V\} \\
+&V^{2} = \{@@, @\#, @\$, \#@, \#\#, \#\$, \$@, \$\#, \$\$\} \\
+&V^{3} = \{ wv : w \in V^{2} \wedge v \in V\} \\
+&V^{3} = \{@@@, @\#@, @\$@, \#@@, \#\#@, \#\$@, \$@@, \$\#@, \$\$@, \\
+&@@\#, @\#\#, @\$\#, \#@\#, \#\#\#, \#\$\#, \$@\#, \$\#\#, \$\$\#,\\
+&@@\$, @\#\$, @\$\$, \#@\$, \#\#\$, \#\$\$, \$@\$, \$\#\$, \$\$\$
+&\}
+\end{flalign*}
+
+\begin{flalign*}
+&V = \{0,1,2,3,4,5,6,7,8,9\} \\
+&V^{1} = \{0,1,2,3,4,5,6,7,8,9\} \\
+&V^{2} = \{ wv : w \in V^{1} \wedge v \in V\} \\
+&V^{2} = \{00, 01, 02, 03, 04, 05, 06, 07, 08, 09,
+10, 11, 12, 13, 14, 15, 16, 17, 18, 19,  \\
+&20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+30, 31, 32, 33, 34, 35, 36, 37, 38, 39,  \\
+&40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+50, 51, 52, 53, 54, 55, 56, 57, 58, 59,  \\
+&60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+70, 71, 72, 73, 74, 75, 76, 77, 78, 79,  \\
+&80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
+90, 91, 92, 93, 94, 95, 96, 97, 98, 99
+&\} \\
+&V^{3} = \{ wv : w \in V^{2} \wedge v \in V\}
+\end{flalign*}
+
+itd..
+
+\newpage
+\section{Ile elementów liczy zbiór $V^{n}$ jeśli V jest k-elementowy ?}
+\Large Zdaje się że tyle co $k^{n}$. \\
+Patrząc na definicję:
+\begin{flalign*}
+&V^{0} = \{\epsilon\} \\
+&V^{i + 1} = \{ wv : w \in V^{i} \wedge v \in V\}, i \in \mathbb{N}
+\end{flalign*}
+Przy każdym zejściu o poziom w dół,  ilość elementów pomnaża się o k-elementów, dzieje się to n razy $\rightarrow k^{n}$
+
+\newpage
+\section{Określ $V^{*}$ dla zbioru V= \{0,1\}}
+\begin{flalign*}
+&V^{*} = \{\epsilon\} \cup ^{0} \cup V^{1} \cup V^{2} \cup ... \rightarrow \\
+&V^{*} = \{\epsilon\} \cup \{0, 1\} \cup \{00,01,10,11\} \cup ... \rightarrow \\
+&V^{*} = \{\epsilon, 0, 1, 00, 01, 10, 11, 000, 001 ...\} \rightarrow \\
+&\rightarrow \text{Wszystkie istniejące słowa binarne}
+\end{flalign*}
+
+\newpage
+\section{Mamy grę o następujących zasadach – dana jest urna zawierająca białe i czarne kule, wyciągamy z urny dwie kule i (1)jeżeli były to kule w tym samym kolorze do urny wkładamy kulę czarną, (2)jeśli natomiast kule były w różnym kolorze do urny wkładamy kulę białą. Czynność powtarzamy do momentu, w którym w urnie zostaje jedna kula. Znając początkową zawartość urny określić wynik gry - przedstawić grę jako semisystem Thuego. Czy wynik tej gry zależy od kolejności wyciąganych kul? }
+
+\subsection{Zapis systemu sami-Thue}
+\begin{flalign*}
+&V^{0} = \{\epsilon\} \\
+&V = \{b, c\} \\
+&P = \{
+bb \rightarrow c,
+cc \rightarrow c,
+bc \rightarrow b,
+cb \rightarrow b
+\} \\
+\end{flalign*}
+
+\subsection{Przykładowe rozgrywki:}
+\begin{flalign*}
+&	1. [b,b,c,c] \rightarrow [c,c,c] \rightarrow [c,c] \rightarrow [c] \\
+&   2. [b,c,c,c] \rightarrow [b,c,c] \rightarrow [b,c] \rightarrow [b] \\
+&   3. [b,c,b,c] \rightarrow [b,b,c] \rightarrow [c,c] \rightarrow [c]
+\end{flalign*}
+
+\subsection{Wyjaśnienie}
+Wynik gry nie zależy od kolejności wyciąganych kul, a od stanu początkowego, konkretnie ilości kul białych na starcie, a jeszcze konkretniej od parzystości ilości kul białych. Jeżeli ilość kul białych na początku rozgrywki jest nieparzysta, wynikiem będzie kula biała.
+
+\newpage
+\section{ Dana jest gramatyka kombinatoryczna:}
+\begin{flalign*}
+&V = \{a,b,c,d\}, \\
+&\Sigma = \{ \sigma, A, B\}, \\
+&P = \{ \sigma \rightarrow AaB, AB \rightarrow c, A \rightarrow AB\sigma B, B \rightarrow bb, B \sigma \rightarrow Ba \}
+\end{flalign*}
+Podaj przykłady wyprowadzeń słów języka generowanego przez tą gramatykę
+
+\subsection{Słowa:}
+\begin{flalign*}
+&\sigma \rightarrow AaB \rightarrow Aabb \rightarrow AB \sigma B abb \rightarrow c \sigma B abb \rightarrow cAaBBabb \rightarrow \\
+&cAabbbbabb \rightarrow cAB\sigma Babbbbabb \rightarrow  ccBaabbbbabb \rightarrow ccbbaabbbbabb \\
+&\\
+&AB \rightarrow c \\
+&\\
+&ABB \rightarrow cbb
+\end{flalign*}
+
+\newpage
+\section{Do jakiej klasy należy gramatyka G=(V,T,P,S) jeżeli:}
+\subsection{V = {K,L}, T={a,b,c}, P={K → KL, aK → abK, L → abc, cK → cabc, bK → bc, L → abcKabc}, S=L}
+kontekstowa - klasa 1, bo po lewej stronie w kilku przejściach występują terminale
+\subsection{V = {M,Q,R}, T={a,b}, P={M → aM, M → bQ, Q → aR, R→ bR, R→b}, S = M}
+regularna - klasa 3, bo po lewej stronie wszędzie są tylko nieterminale a po prawej jest co najwyżej jeden nieterminal
+
+\newpage
+\section{Napisz gramatykę dla języka palindromów nad alfabetem {0,1}.}
+\subsection{Gramatyka:}
+\begin{flalign*}
+&G = (V,T,P,S) \\
+&V = \{A\} \\
+&T = \{0,1\} \\
+&S = A \\
+&P = \{A \rightarrow 0, A \rightarrow 1, A \rightarrow 00, A \rightarrow 11, A \rightarrow 0A0, A \rightarrow 1A1\}
+\end{flalign*}
+\newpage
+\section{...}
+
+\newpage
+\section{Napisz gramatyki dla następujących języków:}
+\subsection{$a^n b^n , n>=1$ (n-powtórzeń symbolu „a” po których następuje n-powtórzeń symbolu b)}
+\begin{flalign*}
+&G = (V,T,P,S) \\
+&V = \{A\} \\
+&T = \{a,b\} \\
+&S = A \\
+&P = \{A \rightarrow ab, A \rightarrow aAb\}
+\end{flalign*}
+\subsection{$a^n b^n c^k d^k, n > 1, k >= 1$}
+\begin{flalign*}
+&G = (V,T,P,S) \\
+&V = \{A\} \\
+&T = \{a,b\} \\
+&S = C \\
+&P = \{A \rightarrow aabb, A \rightarrow aAb, B \rightarrow cd, B \rightarrow cBd, C \rightarrow AB\}
+\end{flalign*}
+\subsection{$a^n b^n c^n, n >= 1$}
+\begin{flalign*}
+&G = (V,T,P,S) \\
+&V = \{A\} \\
+&T = \{a,b,c\} \\
+&S = A \\
+&P = \{A \rightarrow aBAc, A \rightarrow aBc, Ba \rightarrow aB, Bc \rightarrow bc, Bb \rightarrow bb\}
+\end{flalign*}
+
+\newpage
+\section{Napisz gramatykę dla poprawnego nawiasowania – przykłady słów należących do języka generowanego przez tą gramatykę:
+(),()(), (()()), ((()))
+Przykłady nienależących do języka:
+), )(, (()}
+\subsection{Gramatyka:}
+\begin{flalign*}
+&G = (V,T,P,S) \\
+&V = \{A\} \\
+&T = \{(,), \epsilon \} \\
+&S = A \\
+&P = \{A \rightarrow \epsilon, A \rightarrow (), A \rightarrow (A), A \rightarrow A(A), A \rightarrow (A)A\} \\
+\end{flalign*}
+\subsection{Słowa:}
+\begin{flalign*}
+&A \rightarrow (A) \rightarrow ((A)) \rightarrow ((())) \\
+&A \rightarrow (A)(A) \rightarrow ()() \\
+&A \rightarrow () \\
+&A \rightarrow (A) \rightarrow ((A)(A)) \rightarrow (()())
+\end{flalign*}
+
+\begin{flalign*}
+&G = (V,T,P,S) \\
+&V = \{A, B\} \\
+&T = \{l,o\} \\
+&S = B \\
+&P = \{A \rightarrow o, A \rightarrow oAo, B \rightarrow lAl\} \\
+\end{flalign*}
+
+\end{document}
