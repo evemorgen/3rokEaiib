@@ -1,0 +1,315 @@
+% Graphic for TeX using PGF
+% Title: /Users/evemorgen/Dropbox/studia/3rokEaiib/bazy_danych/lab7/7-3.dia
+% Creator: Dia v0.97.2
+% CreationDate: Tue Nov 22 23:02:13 2016
+% For: evemorgen
+% \usepackage{tikz}
+% The following commands are not supported in PSTricks at present
+% We define them conditionally, so when they are implemented,
+% this pgf file will use them.
+\ifx\du\undefined
+  \newlength{\du}
+\fi
+\setlength{\du}{15\unitlength}
+\begin{tikzpicture}
+\pgftransformxscale{1.000000}
+\pgftransformyscale{-1.000000}
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (3.350000\du,9.200000\du)--(3.350000\du,10.600000\du)--(10.780000\du,10.600000\du)--(10.780000\du,9.200000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (3.350000\du,9.200000\du)--(3.350000\du,10.600000\du)--(10.780000\du,10.600000\du)--(10.780000\du,9.200000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node at (7.065000\du,10.200000\du){Oddział};
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (3.350000\du,10.600000\du)--(3.350000\du,12.400000\du)--(10.780000\du,12.400000\du)--(10.780000\du,10.600000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (3.350000\du,10.600000\du)--(3.350000\du,12.400000\du)--(10.780000\du,12.400000\du)--(10.780000\du,10.600000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (3.500000\du,11.300000\du){\#IDoddziału};
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (3.500000\du,12.100000\du){ OddziałWojewódzki};
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (21.315000\du,9.190000\du)--(21.315000\du,10.590000\du)--(26.970000\du,10.590000\du)--(26.970000\du,9.190000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (21.315000\du,9.190000\du)--(21.315000\du,10.590000\du)--(26.970000\du,10.590000\du)--(26.970000\du,9.190000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node at (24.142500\du,10.190000\du){Pracownicy};
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (21.315000\du,10.590000\du)--(21.315000\du,12.390000\du)--(26.970000\du,12.390000\du)--(26.970000\du,10.590000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (21.315000\du,10.590000\du)--(21.315000\du,12.390000\du)--(26.970000\du,12.390000\du)--(26.970000\du,10.590000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (21.465000\du,11.290000\du){\#IDpracownika};
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (21.465000\du,12.090000\du){ Stanowisko};
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (10.830421\du,10.800000\du)--(14.087500\du,10.800000\du)--(14.087500\du,10.790000\du)--(21.264821\du,10.790000\du);
+}
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 1.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (14.187500\du,10.645000\du){zatrudnia};
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (17.752500\du,10.645000\du)--(17.752500\du,10.245000\du)--(18.152500\du,10.445000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (11.387500\du,10.550000\du){1..1};
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=east] at (21.087500\du,10.550000\du){3..*};
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (21.252500\du,3.440000\du)--(21.252500\du,4.840000\du)--(26.737500\du,4.840000\du)--(26.737500\du,3.440000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (21.252500\du,3.440000\du)--(21.252500\du,4.840000\du)--(26.737500\du,4.840000\du)--(26.737500\du,3.440000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node at (23.995000\du,4.440000\du){Kierownicy};
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (21.252500\du,4.840000\du)--(21.252500\du,5.240000\du)--(26.737500\du,5.240000\du)--(26.737500\du,4.840000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (21.252500\du,4.840000\du)--(21.252500\du,5.240000\du)--(26.737500\du,5.240000\du)--(26.737500\du,4.840000\du)--cycle;
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (24.000000\du,9.000000\du)--(24.000000\du,7.600000\du)--(23.995000\du,7.600000\du)--(23.995000\du,5.240000\du);
+}
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 1.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node at (23.997500\du,7.450000\du){      jest};
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (26.022500\du,7.450000\du)--(26.022500\du,7.050000\du)--(26.422500\du,7.250000\du)--cycle;
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (3.350000\du,9.900000\du)--(-3.262500\du,9.900000\du)--(-3.262500\du,11.900000\du)--(3.350000\du,11.900000\du);
+}
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (-3.162500\du,10.750000\du){nadzoruje};
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (0.402500\du,10.750000\du)--(0.402500\du,10.350000\du)--(0.802500\du,10.550000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (24.387500\du,8.900000\du){1..1};
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (24.187500\du,5.950000\du){0..*};
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (-3.162500\du,9.600000\du){OddziałWojewódzki};
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (4.502500\du,17.290000\du)--(4.502500\du,18.690000\du)--(9.622500\du,18.690000\du)--(9.622500\du,17.290000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (4.502500\du,17.290000\du)--(4.502500\du,18.690000\du)--(9.622500\du,18.690000\du)--(9.622500\du,17.290000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node at (7.062500\du,18.290000\du){Wycieczki};
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (4.502500\du,18.690000\du)--(4.502500\du,19.690000\du)--(9.622500\du,19.690000\du)--(9.622500\du,18.690000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (4.502500\du,18.690000\du)--(4.502500\du,19.690000\du)--(9.622500\du,19.690000\du)--(9.622500\du,18.690000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (4.652500\du,19.390000\du){\#IDwycieczki};
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (7.065000\du,12.400000\du)--(7.065000\du,15.200000\du)--(7.062500\du,15.200000\du)--(7.062500\du,17.239784\du);
+}
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node at (7.063750\du,15.050000\du){        oferuje};
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (10.051250\du,15.050000\du)--(10.051250\du,14.650000\du)--(10.451250\du,14.850000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (7.337500\du,17.050000\du){1..*};
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (7.387500\du,13.200000\du){1..1};
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (20.852500\du,17.290000\du)--(20.852500\du,18.690000\du)--(26.560000\du,18.690000\du)--(26.560000\du,17.290000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (20.852500\du,17.290000\du)--(20.852500\du,18.690000\du)--(26.560000\du,18.690000\du)--(26.560000\du,17.290000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node at (23.706250\du,18.290000\du){Rezerwacje};
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (20.852500\du,18.690000\du)--(20.852500\du,19.690000\du)--(26.560000\du,19.690000\du)--(26.560000\du,18.690000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (20.852500\du,18.690000\du)--(20.852500\du,19.690000\du)--(26.560000\du,19.690000\du)--(26.560000\du,18.690000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (21.002500\du,19.390000\du){\#IDrezerwacji};
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (9.672819\du,18.490000\du)--(9.722819\du,18.490000\du)--(20.752146\du,18.490000\du)--(20.802146\du,18.490000\du);
+}
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node at (15.237482\du,18.340000\du){składa się z};
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (17.647482\du,18.340000\du)--(17.647482\du,17.940000\du)--(18.047482\du,18.140000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (18.387500\du,18.300000\du){10..45};
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (9.937500\du,18.300000\du){1..1};
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (4.902500\du,2.840000\du)--(4.902500\du,4.240000\du)--(9.252500\du,4.240000\du)--(9.252500\du,2.840000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (4.902500\du,2.840000\du)--(4.902500\du,4.240000\du)--(9.252500\du,4.240000\du)--(9.252500\du,2.840000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node at (7.077500\du,3.840000\du){Klienci};
+\definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (4.902500\du,4.240000\du)--(4.902500\du,5.240000\du)--(9.252500\du,5.240000\du)--(9.252500\du,4.240000\du)--cycle;
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (4.902500\du,4.240000\du)--(4.902500\du,5.240000\du)--(9.252500\du,5.240000\du)--(9.252500\du,4.240000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (5.052500\du,4.940000\du){\#IDklienta};
+\pgfsetlinewidth{0.100000\du}
+\pgfsetdash{}{0pt}
+\pgfsetmiterjoin
+\pgfsetbuttcap
+{
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+% was here!!!
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\draw (7.077500\du,5.240000\du)--(7.077500\du,7.470000\du)--(7.065000\du,7.470000\du)--(7.065000\du,9.200000\du);
+}
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node at (7.071250\du,7.320000\du){wykupują  rezerwacje};
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetfillcolor{dialinecolor}
+\fill (11.213750\du,7.320000\du)--(11.213750\du,6.920000\du)--(11.613750\du,7.120000\du)--cycle;
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (7.387500\du,6.050000\du){1..*};
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
+\node[anchor=west] at (7.487500\du,8.750000\du){1..1};
+\end{tikzpicture}
