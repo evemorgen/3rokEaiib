@@ -22,14 +22,14 @@ function zadaniaB(obrazek, n, rozmiarOkna, sauvol)
             srednia = meanLT(i,j,rozmiarOkna,rice,X,Y);
             if sauvol == true
                 odchylenie = stddevLT(i,j,rozmiarOkna,rice,srednia,X,Y);
-                T = srednia*(1 + k*(odchylenie/R - 1));
-                if T > n
+                T = srednia*(1 - k*(odchylenie/R - 1));
+                if T < rice(i,j)
                     riceBW(i,j) = 255;
                 else
                     riceBW(i,j) = 0;
                 end
             else
-                if srednia > n
+                if srednia < rice(i,j)
                     riceBW(i,j) = 255;
                 else
                     riceBW(i,j) = 0;

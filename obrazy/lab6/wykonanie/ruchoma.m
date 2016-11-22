@@ -10,14 +10,14 @@ function ruchoma(nazwaObrazu)
     
     for i = 1:X
         for j = 1:Y
-            m = sum(tablica)/N;
+            m = sum(tablica);
             T = a*m;
             if obraz(i,j) > T
                 kopia(i,j) = 255;
             else
                 kopia(i,j) = 0;
             end
-            tablica = [obraz(i,j) tablica(1:19)];
+            tablica = [obraz(i,j)/N tablica(1:19)];
         end
     end
     
