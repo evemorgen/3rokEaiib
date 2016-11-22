@@ -1,0 +1,9 @@
+1. Metoda płatności     {metodaPłNr}
+2. Faktura              {fakturaNr, metodaPłNr}
+3. Zamówienie           {ZamówienieNr, fakturaNr, metodaPłNr, klientNr, pracownikNr}
+4. Klient               {klientNr}
+5. Pracownik            {pracownikNr}
+6. Szczegóły zamówienia {zamówienieNr, artykułNr}
+7. Transport            {transportNr, pracownikNr, zamówienieNr, sposóbNr}
+8. Sposób transportu    {sposóbNr}
+9. Artykuł              {artykułNr}
