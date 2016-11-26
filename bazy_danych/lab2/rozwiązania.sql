@@ -48,13 +48,13 @@ select pi();
 
 
 --2.4.1 masa mieści się w przedziale od 15 do 24 g,
-select IDCzekoladki, Nazwa, Masa, Koszt from czekoladki where masa > 15 and masa < 24;
+select IDCzekoladki, Nazwa, Masa, Koszt from czekoladki where masa >= 15 and masa <= 24;
 
 --2.4.2 koszt produkcji mieści się w przedziale od 25 do 35 gr,
-select IDCzekoladki, Nazwa, Masa, Koszt from czekoladki where koszt > 0.25 and koszt < 0.35;
+select IDCzekoladki, Nazwa, Masa, Koszt from czekoladki where koszt >= 0.25 and koszt <= 0.35;
 
 --2.4.3 ★ masa mieści się w przedziale od 25 do 35 g lub koszt produkcji mieści się w przedziale od 15 do 24 gr.
-select IDCzekoladki, Nazwa, Masa, Koszt from czekoladki where (koszt > 0.25 and koszt < 0.35) or (masa > 25 and masa < 35);
+select IDCzekoladki, Nazwa, Masa, Koszt from czekoladki where (koszt >= 0.25 and koszt <= 0.35) or (masa >= 15 and masa <= 24);
 
 
 --2.5.1 zawierają jakieś orzechy,

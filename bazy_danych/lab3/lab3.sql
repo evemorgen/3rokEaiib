@@ -5,16 +5,19 @@ select idZamowienia, dataRealizacji from zamowienia where dataRealizacji between
 select idZamowienia, dataRealizacji from zamowienia where dataRealizacji between '2013-12-01' and '2013-12-06' or dataRealizacji between '2013-12-15' and '2013-12-20';
 
 --3.1.3 w listopadzie 2013 (w tym i kolejnych zapytaniach użyj funkcji datepart lub extract),
-select idZamowienia, dataRealizacji from zamowienia where date_part('month', dataRealizacji) = 11;
-select idZamowienia, dataRealizacji from zamowienia where extract(month from dataRealizacji) = 11;
+select idZamowienia, dataRealizacji from zamowienia where date_part('month', dataRealizacji) = 12;
+select idZamowienia, dataRealizacji from zamowienia where extract(month from dataRealizacji) = 12;
 
---3.1.4 ★ w listopadzie lub grudniu 2013
+--3.1.4 w listopadzie 2013 (w tym i kolejnych zapytaniach użyj funkcji datepart lub extract),
+select idZamowienia, dataRealizacji from zamowienia where datepart('month' dataRealizacji) = 11 and date_part('year', dataRealizacji) = 2013;
+
+--3.1.5 ★ w listopadzie lub grudniu 2013
 select idZamowienia, dataRealizacji from zamowienia where date_part('month', dataRealizacji) in (11, 12) and date_part('year', dataRealizacji) = 2013;
 
---3.1.5 ★ 17, 18 lub 19 dnia miesiąca
+--3.1.6 ★ 17, 18 lub 19 dnia miesiąca
 select idZamowienia, dataRealizacji from zamowienia where date_part('day', dataRealizacji) in (17, 18, 19);
 
---3.1.6 ★ 46 lub 47 tygodniu roku.
+--3.1.7 ★ 46 lub 47 tygodniu roku.
 select idZamowienia, dataRealizacji from zamowienia where date_part('week', dataRealizacji) in (46, 47);
 
 
@@ -53,7 +56,7 @@ select idczekoladki, nazwa, czekolada, orzechy, nadzienie from czekoladki where 
 select miejscowosc from klienci where miejscowosc like '% %';
 
 --3.3.2 wyświetla nazwy klientów, którzy podali numer stacjonarny telefonu
-select nazwa from klienci where telefon like '012%';
+select nazwa from klienci where telefon like '% % % %';
 
 --3.3.3 ★ wyświetla nazwy klientów, którzy podali numer komórkowy telefonu
 select nazwa from klienci where char_length(telefon) = 11;
@@ -79,7 +82,7 @@ select idczekoladki, nazwa, masa, koszt from czekoladki where masa between 25 an
 select idklienta from klienci except select idklienta from zamowienia;
 
 --3.5.2 identyfikatory pudełek, które nigdy nie zostały zamówione
-select idpudelka from artykuly except select idpudelka from pudelka;
+select idpudelka from pudelka except select idpudelka from artykuly;
 
 --3.5.3 ★ nazwy klientów, czekoladek i pudełek, które zawierają rz (lub Rz)
 select nazwa from klienci where nazwa similar to '(%rz%|%Rz%)' union select nazwa from czekoladki where nazwa similar to '(%rz%|%Rz%)' union select nazwa from pudelka where nazwa similar to '(%rz%|%Rz%)';
@@ -95,7 +98,7 @@ select idmeczu, (select sum(a) from UNNEST(gospodarze) a), (select sum(b) from U
 select idmeczu, (select sum(a) from UNNEST(gospodarze) a), (select sum(b) from UNNEST(goscie) b) from siatkowka.statystyki where array_length(gospodarze, 1) = 5 and (gospodarze[5] > 15 or goscie[5] > 15);
 
 --3.6.3 identyfikator i wynik meczu w formacie x:y, np. 3:1 (wynik jest pojedynczą kolumną – napisem),
-elect idmeczu, (select '3:' || to_char(array_length(gospodarze, 1) - 3, 'fm9')) from statystyki;
+select idmeczu, (select '3:' || to_char(array_length(gospodarze, 1) - 3, 'fm9')) from statystyki;
 
 --3.6.4 ★ identyfikator meczu, sumę punktów zdobytych przez gospodarzy i sumę punktów zdobytych przez gości, dla meczów, w których gospodarze zdobyli ponad 100 punktów,
 select idmeczu, (select sum(a) from UNNEST(gospodarze) a) as "gospodarze", (select sum(b) from UNNEST(goscie) b) as "goście" from siatkowka.statystyki where (select sum(a) from UNNEST(gospodarze) a) > 100;

@@ -34,7 +34,7 @@ select idzamowienia, datarealizacji from zamowienia natural join klienci where m
 
 
 --4.3.1 złożyli zamówienia z datą realizacji nie starszą niż sprzed pięciu lat
-select nazwa, ulica, miejscowosc, datarealizacji from klienci natural join zamowienia where datarealizacji >= now() - interval '5 years';
+select distinct nazwa, ulica, miejscowosc from klienci natural join zamowienia where datarealizacji >= now() - interval '5 years';
 
 --4.3.2 zamówili pudełko Kremowa fantazja lub Kolekcja jesienna,
 select distinct k.nazwa, k.ulica, k.miejscowosc, p.nazwa from klienci k natural join zamowienia z natural join artykuly a join pudelka p on a.idpudelka = p.idpudelka where p.nazwa in ('Kremowa fantazja', 'Kolekcja jesienna');
@@ -83,7 +83,7 @@ select p.nazwa, p.opis, p.cena from pudelka p natural join zawartosc z join czek
 --4.5.6 ★ zawierają co najmniej 3 sztuki czekoladki Gorzka truskawkowa,
 select p.nazwa, p.opis, p.cena, z.sztuk from pudelka p natural join zawartosc z join czekoladki c using(idczekoladki) where c.nazwa = 'Gorzka truskawkowa' and z.sztuk >= 3;
 
---4.5.7 ★ nie zawierają czekoladek z orzechami,
+--4.5.7 ★ nie zawierają czekoladek z orzechami, !!!WTF!!!
 select p.nazwa, p.opis, p.cena, c.orzechy from pudelka p natural join zawartosc z join czekoladki c using(idczekoladki) except select p.nazwa, p.opis, p.cena, c.orzechy from pudelka p natural join zawartosc z join czekoladki c using(idczekoladki) where c.orzechy is not null;
 
 --4.5.8 ★ zawierają czekoladki Gorzka truskawkowa,

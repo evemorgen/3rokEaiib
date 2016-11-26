@@ -22,7 +22,7 @@ select idpudelka, sum(sztuk) from zawartosc natural join czekoladki where czekol
 select idpudelka, sum(masa*sztuk) as "masa pudełka" from zawartosc natural join czekoladki group by idpudelka;
 
 --5.2.2 pudełka o największej masie
-select idpudelka, sum(masa*sztuk) as "masa pudełka" from zawartosc natural join czekoladki group by idpudelka order by sum(masa) DESC limit 1;
+select idpudelka, sum(masa*sztuk) as "masa pudełka" from zawartosc natural join czekoladki group by idpudelka order by sum(masa*sztuk) DESC limit 1;
 select * from pudelka where idpudelka = (select idpudelka from zawartosc natural join czekoladki group by idpudelka order by sum(masa*sztuk) desc limit 1);
 
 --5.2.3 ★ średniej masy pudełka w ofercie cukierni,
