@@ -1,9 +1,9 @@
 -module(mod).
 
--export([fun1/1]).
+-export([fun1/1, dodaj5/1]).
 
 fun1(Mess) ->
-    io:fwrite('Healthcheck - ~s~n', [Mess]).
+    "Healthcheck - " ++ Mess.
 
-handle(fun, Args) ->
-
+dodaj5(Liczba) ->
+    Liczba + 5.
