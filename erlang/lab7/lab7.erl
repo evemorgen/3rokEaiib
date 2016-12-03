@@ -27,7 +27,7 @@ serwer() ->
             SenderPid ! get(logs);
         {_, save} ->
             %% fix me pls
-            file:write_file(io_lib:format("server-~p.log", [self()]), io_lib:format("~p", [lists:append(get(logs))]));
+            file:write_file(io_lib:format("server-~p.log", [self()]), io_lib:format("~w", [get(logs)]));
         {_, stop} ->
             put_log("Stopping server with pid ~p", [self()]),
             self() ! {self(), save},
