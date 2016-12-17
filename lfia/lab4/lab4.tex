@@ -103,13 +103,13 @@ $L = \{\varepsilon\}$
 \newpage
 \section{Zapisać wyrażenie regularne reprezentujące język:}
 \subsection{będący zbiorem łańcuchów zaczynającym się o '1' po którym następuje jedno lub więcej '0' i kończący się '1'}
-	$100^*1$
+$100^*1$
 \subsection{będący zbiorem wszystkich łańcuchów w których na zmianę występuje '1' i '0'}
-	$((1+\varepsilon)01(01)^*(0+\varepsilon)) + (0+\varepsilon)10(10)^*(1+\varepsilon))$
+$((1+\varepsilon)01(01)^*(0+\varepsilon)) + (0+\varepsilon)10(10)^*(1+\varepsilon))$
 \subsection{będący zbiorem łańcuchów stanowiących literały całkowitoliczbowe ósemkowe i szesnastkowe o dowolnej długości zapisywane zgodnie z konwencją języka Java.}
-	Osemki = (0(1+2+3+4+5+6+7)(1+2+3+4+5+6+7)*) \\
-	Szesnastki = (0X(1+2+3+4+5+6+7+8+9+A+B+C+D+E+F)(1+2+3+4+5+6+7+8+9+A+B+C+D+E+F)*) \\
-	Rozw = Osemki + Szesnastki
+Osemki = (0(1+2+3+4+5+6+7)(1+2+3+4+5+6+7)*) \\
+Szesnastki = (0X(1+2+3+4+5+6+7+8+9+A+B+C+D+E+F)(1+2+3+4+5+6+7+8+9+A+B+C+D+E+F)*) \\
+Rozw = Osemki + Szesnastki
 \subsection{będący zbiorem łańcuchów przedstawiających numery NIP w formacie XXX-XXX-XX-XX lub XXX-XX-XX-XXX (gdzie X oznacza dowolną cyfrę 0-9)}
 C = (0+1+2+3+4+5+6+7+8+9)  \\
 Rozw = CCC-CCC-CC-CC + CCC-CC-CC-CCC
@@ -145,10 +145,14 @@ Język posiadający jedno słowo $\varepsilon$
 \newpage
 \section{Zamienić poniższe wyrażenia regularne na $\varepsilon$-NAS}
 \subsection{01*0}
+\includegraphics[scale=0.5]{10-1}
 \subsection{(0+1)10}
+\includegraphics[scale=0.6]{10-2}
 \subsection{aa(a+b)*b}
+\includegraphics[scale=0.4]{10-3}
 
 \section{Przekonwertować poszczególne $\varepsilon$-NAS z poprzedniego zadania na DAS.}
+$moje życie jest za krótkie żeby konwertować to długie gównpo$
 
 
 \end{document}
