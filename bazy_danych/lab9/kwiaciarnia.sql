@@ -10,10 +10,10 @@ drop table zapotrzebowanie;
 
 create table klienci (
     idklienta   varchar(10) primary key,
-    haslo       char(10) check(length(haslo) > 4) not null,
+    haslo       varchar(10) check(length(haslo) >= 4) not null,
     nazwa       varchar(40) not null,
     miasto      varchar(40) not null,
-    kod         varchar(6) check(length(haslo) = 6),
+    kod         varchar(6) check(length(kod) = 6),
     adres       varchar(40) not null,
     email       varchar(40) not null,
     telefon     varchar(16) not null,

@@ -88,7 +88,7 @@ kw5;Anturium latem;3 anturia, kapusta, knofia, roza herbaciana, margerytka, pter
 \.
 
 -- odbiorcy
-copy odbiorcy from stdin with (null '', delimiter ';');
+copy odbiorcy(nazwa, miasto, kod, adres) from stdin with (null '', delimiter ';');
 Slawomir Zeganek;Krakow;30-059;Al A. Mickiewicza 4/3
 Dorota Pszczolka;Slomniki;32-090;ul. Wiosenna 8
 Wioletta Barszcz;Skawina;32-050;ul. zwirki i Wigury 7/11
