@@ -1,16 +1,13 @@
-%% zadanie 2.B
-
-close all;
-clearvars;
-clc;
+%% zadania C
+lab = imread('dom.png');
 
 X = 3;
 Y = 1;
 
-kwadraty = imread('kwadraty.png');
+kwadraty = lab;
 autocanny = edge(kwadraty, 'canny');
 [H,theta,rho] = hough(autocanny);
-piki = houghpeaks(H,9);
+piki = houghpeaks(H,12);
 lines = houghlines(autocanny,theta,rho,piki);
 
 

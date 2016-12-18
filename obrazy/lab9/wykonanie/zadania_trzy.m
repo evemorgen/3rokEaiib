@@ -1,16 +1,16 @@
-%% zadanie 2.B
+%% zadania C
+lab = imread('lab112.png');
+lab1 = lab(:,30:500);
 
-close all;
-clearvars;
-clc;
+lab2 = im2bw(lab1, 0.2);
 
 X = 3;
 Y = 1;
 
-kwadraty = imread('kwadraty.png');
+kwadraty = lab2;
 autocanny = edge(kwadraty, 'canny');
 [H,theta,rho] = hough(autocanny);
-piki = houghpeaks(H,9);
+piki = houghpeaks(H,12);
 lines = houghlines(autocanny,theta,rho,piki);
 
 
