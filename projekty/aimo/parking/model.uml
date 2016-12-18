@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_OafkgL-8EeaMDuGP8d6uKQ" name="Parking">
+  <packagedElement xmi:type="uml:Actor" xmi:id="_XZ_2IL-8EeaMDuGP8d6uKQ" name="Klient"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_ZvAlsL-8EeaMDuGP8d6uKQ" name="Kasa automatyczna"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_a3G2ML-8EeaMDuGP8d6uKQ" name="Parkingowy"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_b-QrgL-8EeaMDuGP8d6uKQ" name="Pomoc drogowa"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_oqLkgL-8EeaMDuGP8d6uKQ" name="1. rezerwuj miejsce">
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_-ddqoL-8EeaMDuGP8d6uKQ" name="ExtensionPoint1"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_CVhhUL-9EeaMDuGP8d6uKQ" name="ExtensionPoint2"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_K-dtEL-9EeaMDuGP8d6uKQ" name="ExtensionPoint3"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_x19XkL-8EeaMDuGP8d6uKQ" memberEnd="_x1_MwL-8EeaMDuGP8d6uKQ _x1_Mwb-8EeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_x1-lsL-8EeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_x1-lsb-8EeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_x1_MwL-8EeaMDuGP8d6uKQ" name="rezerwuj miejsce" type="_oqLkgL-8EeaMDuGP8d6uKQ" association="_x19XkL-8EeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_x1_Mwb-8EeaMDuGP8d6uKQ" name="klient" type="_XZ_2IL-8EeaMDuGP8d6uKQ" association="_x19XkL-8EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_3TbF0L-8EeaMDuGP8d6uKQ" name="1.1 rezerwuj przez telefon" isLeaf="true">
+    <extend xmi:type="uml:Extend" xmi:id="_-db1cL-8EeaMDuGP8d6uKQ" extendedCase="_oqLkgL-8EeaMDuGP8d6uKQ" extensionLocation="_-ddqoL-8EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ABisgL-9EeaMDuGP8d6uKQ" name="1.2 rezerwuj online">
+    <extend xmi:type="uml:Extend" xmi:id="_CVg6QL-9EeaMDuGP8d6uKQ" extendedCase="_oqLkgL-8EeaMDuGP8d6uKQ" extensionLocation="_CVhhUL-9EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_HLkDML-9EeaMDuGP8d6uKQ" name="1.3 rezerwuj w kasie">
+    <extend xmi:type="uml:Extend" xmi:id="_K-dGAL-9EeaMDuGP8d6uKQ" extendedCase="_oqLkgL-8EeaMDuGP8d6uKQ" extensionLocation="_K-dtEL-9EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_N7EoIL-9EeaMDuGP8d6uKQ" memberEnd="_N7FPMr-9EeaMDuGP8d6uKQ _N7F2QL-9EeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N7FPML-9EeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N7FPMb-9EeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_N7FPMr-9EeaMDuGP8d6uKQ" name="1. rezerwuj miejsce" type="_oqLkgL-8EeaMDuGP8d6uKQ" association="_N7EoIL-9EeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_N7F2QL-9EeaMDuGP8d6uKQ" name="kasa automatyczna" type="_ZvAlsL-8EeaMDuGP8d6uKQ" association="_N7EoIL-9EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_TiFT8L-9EeaMDuGP8d6uKQ" name="2. zapłać rachunek">
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_fH5ggL-9EeaMDuGP8d6uKQ" name="ExtensionPoint1"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_h-WJMb-9EeaMDuGP8d6uKQ" name="ExtensionPoint2"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_pIcYYL-9EeaMDuGP8d6uKQ" name="ExtensionPoint3"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_W34yIL-9EeaMDuGP8d6uKQ" memberEnd="_W36AQL-9EeaMDuGP8d6uKQ _W36AQb-9EeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_W35ZML-9EeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_W35ZMb-9EeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_W36AQL-9EeaMDuGP8d6uKQ" name="2. zapłać rachunek" type="_TiFT8L-9EeaMDuGP8d6uKQ" association="_W34yIL-9EeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_W36AQb-9EeaMDuGP8d6uKQ" name="klient" type="_XZ_2IL-8EeaMDuGP8d6uKQ" association="_W34yIL-9EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_bB6ikL-9EeaMDuGP8d6uKQ" name="2.1 zapłać w kasie automatycznej">
+    <extend xmi:type="uml:Extend" xmi:id="_fH45cL-9EeaMDuGP8d6uKQ" extendedCase="_TiFT8L-9EeaMDuGP8d6uKQ" extensionLocation="_fH5ggL-9EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ndVhcL-9EeaMDuGP8d6uKQ" name="2.2 zapłać online">
+    <extend xmi:type="uml:Extend" xmi:id="_pIbxUL-9EeaMDuGP8d6uKQ" extendedCase="_TiFT8L-9EeaMDuGP8d6uKQ" extensionLocation="_pIcYYL-9EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_qRm_4L-9EeaMDuGP8d6uKQ" name="2.1.1 zapłać gotówką"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_vMQU8L-9EeaMDuGP8d6uKQ" client="_bB6ikL-9EeaMDuGP8d6uKQ" supplier="_qRm_4L-9EeaMDuGP8d6uKQ"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_y02zUL-9EeaMDuGP8d6uKQ" name="2.1.2 2.2.3 zapłać kartą"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0hO1kL-9EeaMDuGP8d6uKQ" client="_bB6ikL-9EeaMDuGP8d6uKQ" supplier="_y02zUL-9EeaMDuGP8d6uKQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1C-QsL-9EeaMDuGP8d6uKQ" client="_ndVhcL-9EeaMDuGP8d6uKQ" supplier="_y02zUL-9EeaMDuGP8d6uKQ"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2NmQwL-9EeaMDuGP8d6uKQ" name="2.2.1 zapłać przelewem"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_33CTwL-9EeaMDuGP8d6uKQ" client="_ndVhcL-9EeaMDuGP8d6uKQ" supplier="_2NmQwL-9EeaMDuGP8d6uKQ"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_4wE0kL-9EeaMDuGP8d6uKQ" name="2.2.2 zapłać sms"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_7RK4UL-9EeaMDuGP8d6uKQ" client="_ndVhcL-9EeaMDuGP8d6uKQ" supplier="_4wE0kL-9EeaMDuGP8d6uKQ"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_EhDIQL--EeaMDuGP8d6uKQ" memberEnd="_EhDvUr--EeaMDuGP8d6uKQ _EhEWYL--EeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EhDvUL--EeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EhDvUb--EeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_EhDvUr--EeaMDuGP8d6uKQ" name="2. zapłać rachunek" type="_TiFT8L-9EeaMDuGP8d6uKQ" association="_EhDIQL--EeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_EhEWYL--EeaMDuGP8d6uKQ" name="kasa automatyczna" type="_ZvAlsL-8EeaMDuGP8d6uKQ" association="_EhDIQL--EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_MbaWwL--EeaMDuGP8d6uKQ" name="3. złóż reklamację"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_PdeZkL--EeaMDuGP8d6uKQ" memberEnd="_PdfAor--EeaMDuGP8d6uKQ _PdfAo7--EeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PdfAoL--EeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PdfAob--EeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_PdfAor--EeaMDuGP8d6uKQ" name="złóż reklamację" type="_MbaWwL--EeaMDuGP8d6uKQ" association="_PdeZkL--EeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_PdfAo7--EeaMDuGP8d6uKQ" name="klient" type="_XZ_2IL-8EeaMDuGP8d6uKQ" association="_PdeZkL--EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_VIh34L--EeaMDuGP8d6uKQ" name="4. sprawdź ważność rezerwacji">
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_4HpqML_fEeaMDuGP8d6uKQ" name="ExtensionPoint1"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_7MMZQL_fEeaMDuGP8d6uKQ" name="ExtensionPoint2"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_aGlGQL--EeaMDuGP8d6uKQ" memberEnd="_aGmUYL--EeaMDuGP8d6uKQ _aGmUYb--EeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aGltUL--EeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_aGltUb--EeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_aGmUYL--EeaMDuGP8d6uKQ" name="4. sprawdź ważność rezerwacji" type="_VIh34L--EeaMDuGP8d6uKQ" association="_aGlGQL--EeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_aGmUYb--EeaMDuGP8d6uKQ" name="parkingowy" type="_a3G2ML-8EeaMDuGP8d6uKQ" association="_aGlGQL--EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_bPt4kL--EeaMDuGP8d6uKQ" name="6.1. znajdź miejsce"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_jEDXkL--EeaMDuGP8d6uKQ" name="6. Zaparkuj"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_l3Zo8L--EeaMDuGP8d6uKQ" memberEnd="_l3aQAr--EeaMDuGP8d6uKQ _l3aQA7--EeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_l3aQAL--EeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_l3aQAb--EeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_l3aQAr--EeaMDuGP8d6uKQ" name="6. zaparkuj" type="_jEDXkL--EeaMDuGP8d6uKQ" association="_l3Zo8L--EeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_l3aQA7--EeaMDuGP8d6uKQ" name="kasa automatyczna" type="_ZvAlsL-8EeaMDuGP8d6uKQ" association="_l3Zo8L--EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_mUueIL--EeaMDuGP8d6uKQ" memberEnd="_mUvFMr--EeaMDuGP8d6uKQ _mUvFM7--EeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mUvFML--EeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mUvFMb--EeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mUvFMr--EeaMDuGP8d6uKQ" name="6. zaparkuj" type="_jEDXkL--EeaMDuGP8d6uKQ" association="_mUueIL--EeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mUvFM7--EeaMDuGP8d6uKQ" name="klient" type="_XZ_2IL-8EeaMDuGP8d6uKQ" association="_mUueIL--EeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_qqjO4L--EeaMDuGP8d6uKQ" client="_jEDXkL--EeaMDuGP8d6uKQ" supplier="_bPt4kL--EeaMDuGP8d6uKQ"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_nl_1wL_fEeaMDuGP8d6uKQ" name="informacja o miejscach"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qHlowL_fEeaMDuGP8d6uKQ" memberEnd="_qHmP0r_fEeaMDuGP8d6uKQ _qHmP07_fEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qHmP0L_fEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qHmP0b_fEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qHmP0r_fEeaMDuGP8d6uKQ" name="informacja o miejscach" type="_nl_1wL_fEeaMDuGP8d6uKQ" association="_qHlowL_fEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qHmP07_fEeaMDuGP8d6uKQ" name="klient" type="_XZ_2IL-8EeaMDuGP8d6uKQ" association="_qHlowL_fEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qqQQ8L_fEeaMDuGP8d6uKQ" memberEnd="_qqQ4Ar_fEeaMDuGP8d6uKQ _qqRfEL_fEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qqQ4AL_fEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qqQ4Ab_fEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qqQ4Ar_fEeaMDuGP8d6uKQ" name="kasa automatyczna" type="_ZvAlsL-8EeaMDuGP8d6uKQ" association="_qqQQ8L_fEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_qqRfEL_fEeaMDuGP8d6uKQ" name="informacja o miejscach" type="_nl_1wL_fEeaMDuGP8d6uKQ" association="_qqQQ8L_fEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_0cRkoL_fEeaMDuGP8d6uKQ" name="Bilet papierowy">
+    <extend xmi:type="uml:Extend" xmi:id="_4HpDIL_fEeaMDuGP8d6uKQ" extendedCase="_VIh34L--EeaMDuGP8d6uKQ" extensionLocation="_4HpqML_fEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_5NJ5sL_fEeaMDuGP8d6uKQ" name="Bilet online">
+    <extend xmi:type="uml:Extend" xmi:id="_7MLyML_fEeaMDuGP8d6uKQ" extendedCase="_VIh34L--EeaMDuGP8d6uKQ" extensionLocation="_7MMZQL_fEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_9qMswL_fEeaMDuGP8d6uKQ" name="wypisz mandat"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="__s3vIL_fEeaMDuGP8d6uKQ" memberEnd="__s4WMr_fEeaMDuGP8d6uKQ __s4WM7_fEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__s4WML_fEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__s4WMb_fEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="__s4WMr_fEeaMDuGP8d6uKQ" name="parkingowy" type="_a3G2ML-8EeaMDuGP8d6uKQ" association="__s3vIL_fEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="__s4WM7_fEeaMDuGP8d6uKQ" name="wypisz mandat" type="_9qMswL_fEeaMDuGP8d6uKQ" association="__s3vIL_fEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_CM3msL_gEeaMDuGP8d6uKQ" name="generuj raport"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Dzls4L_gEeaMDuGP8d6uKQ" memberEnd="_DzmT8L_gEeaMDuGP8d6uKQ _DzmT8b_gEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Dzls4b_gEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Dzls4r_gEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_DzmT8L_gEeaMDuGP8d6uKQ" name="parkingowy" type="_a3G2ML-8EeaMDuGP8d6uKQ" association="_Dzls4L_gEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_DzmT8b_gEeaMDuGP8d6uKQ" name="generuj raport" type="_CM3msL_gEeaMDuGP8d6uKQ" association="_Dzls4L_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_GQo-IL_gEeaMDuGP8d6uKQ" name="zadzwoń po pomoc drogową"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_I9VN4L_gEeaMDuGP8d6uKQ" memberEnd="_I9V08r_gEeaMDuGP8d6uKQ _I9V087_gEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_I9V08L_gEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_I9V08b_gEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_I9V08r_gEeaMDuGP8d6uKQ" name="zadzwoń po pomoc drogową" type="_GQo-IL_gEeaMDuGP8d6uKQ" association="_I9VN4L_gEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_I9V087_gEeaMDuGP8d6uKQ" name="parkingowy" type="_a3G2ML-8EeaMDuGP8d6uKQ" association="_I9VN4L_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_JdpssL_gEeaMDuGP8d6uKQ" memberEnd="_Jdpss7_gEeaMDuGP8d6uKQ _JdpstL_gEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Jdpssb_gEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Jdpssr_gEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Jdpss7_gEeaMDuGP8d6uKQ" name="pomoc drogowa" type="_b-QrgL-8EeaMDuGP8d6uKQ" association="_JdpssL_gEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_JdpstL_gEeaMDuGP8d6uKQ" name="zadzwoń po pomoc drogową" type="_GQo-IL_gEeaMDuGP8d6uKQ" association="_JdpssL_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_KRJmML_gEeaMDuGP8d6uKQ" name="eksmituj"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_L_VmUL_gEeaMDuGP8d6uKQ" memberEnd="_L_WNYr_gEeaMDuGP8d6uKQ _L_WNY7_gEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_L_WNYL_gEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_L_WNYb_gEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_L_WNYr_gEeaMDuGP8d6uKQ" name="pomoc drogowa" type="_b-QrgL-8EeaMDuGP8d6uKQ" association="_L_VmUL_gEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_L_WNY7_gEeaMDuGP8d6uKQ" name="eksmituj" type="_KRJmML_gEeaMDuGP8d6uKQ" association="_L_VmUL_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_SYh9AL_gEeaMDuGP8d6uKQ" name="Dział obsługi klienta"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Wc2uEL_gEeaMDuGP8d6uKQ" memberEnd="_Wc3VIL_gEeaMDuGP8d6uKQ _Wc3VIb_gEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Wc2uEb_gEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Wc2uEr_gEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Wc3VIL_gEeaMDuGP8d6uKQ" name="generuj raport" type="_CM3msL_gEeaMDuGP8d6uKQ" association="_Wc2uEL_gEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Wc3VIb_gEeaMDuGP8d6uKQ" name="dział obsługi klienta" type="_SYh9AL_gEeaMDuGP8d6uKQ" association="_Wc2uEL_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ZKjqcL_gEeaMDuGP8d6uKQ" name="generuj dowód płatności">
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_dmJsAb_gEeaMDuGP8d6uKQ" name="ExtensionPoint1"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_gAQ-Ab_gEeaMDuGP8d6uKQ" name="ExtensionPoint2"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_bImrgL_gEeaMDuGP8d6uKQ" name="Paragon">
+    <extend xmi:type="uml:Extend" xmi:id="_dmJsAL_gEeaMDuGP8d6uKQ" extendedCase="_ZKjqcL_gEeaMDuGP8d6uKQ" extensionLocation="_dmJsAb_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_e5_ScL_gEeaMDuGP8d6uKQ" name="Faktura">
+    <extend xmi:type="uml:Extend" xmi:id="_gAQ-AL_gEeaMDuGP8d6uKQ" extendedCase="_ZKjqcL_gEeaMDuGP8d6uKQ" extensionLocation="_gAQ-Ab_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_hO5UUL_gEeaMDuGP8d6uKQ" memberEnd="_hO57Yr_gEeaMDuGP8d6uKQ _hO57Y7_gEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hO57YL_gEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hO57Yb_gEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_hO57Yr_gEeaMDuGP8d6uKQ" name="generuj dowód płatności" type="_ZKjqcL_gEeaMDuGP8d6uKQ" association="_hO5UUL_gEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_hO57Y7_gEeaMDuGP8d6uKQ" name="dział obsługi klienta" type="_SYh9AL_gEeaMDuGP8d6uKQ" association="_hO5UUL_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_j0F08L_gEeaMDuGP8d6uKQ" memberEnd="_j0GcAb_gEeaMDuGP8d6uKQ _j0GcAr_gEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_j0F08b_gEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_j0GcAL_gEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_j0GcAb_gEeaMDuGP8d6uKQ" name="generuj dowód płatności" type="_ZKjqcL_gEeaMDuGP8d6uKQ" association="_j0F08L_gEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_j0GcAr_gEeaMDuGP8d6uKQ" name="kasa automatyczna" type="_ZvAlsL-8EeaMDuGP8d6uKQ" association="_j0F08L_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_tgN8AL_gEeaMDuGP8d6uKQ" memberEnd="_tgOjEr_gEeaMDuGP8d6uKQ _tgOjE7_gEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tgOjEL_gEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tgOjEb_gEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_tgOjEr_gEeaMDuGP8d6uKQ" name="dział obsługi klienta" type="_SYh9AL_gEeaMDuGP8d6uKQ" association="_tgN8AL_gEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_tgOjE7_gEeaMDuGP8d6uKQ" name="3. złóż reklamację" type="_MbaWwL--EeaMDuGP8d6uKQ" association="_tgN8AL_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_uaw4sL_gEeaMDuGP8d6uKQ" name="Opłać mandat"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_vnvCIL_gEeaMDuGP8d6uKQ" memberEnd="_vnvpMr_gEeaMDuGP8d6uKQ _vnvpM7_gEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vnvpML_gEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vnvpMb_gEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_vnvpMr_gEeaMDuGP8d6uKQ" name="dział obsługi klienta" type="_SYh9AL_gEeaMDuGP8d6uKQ" association="_vnvCIL_gEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_vnvpM7_gEeaMDuGP8d6uKQ" name="opłać mandat" type="_uaw4sL_gEeaMDuGP8d6uKQ" association="_vnvCIL_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_xFbIIL_gEeaMDuGP8d6uKQ" memberEnd="_xFbvML_gEeaMDuGP8d6uKQ _xFbvMb_gEeaMDuGP8d6uKQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xFbIIb_gEeaMDuGP8d6uKQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xFbIIr_gEeaMDuGP8d6uKQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_xFbvML_gEeaMDuGP8d6uKQ" name="opłać mandat" type="_uaw4sL_gEeaMDuGP8d6uKQ" association="_xFbIIL_gEeaMDuGP8d6uKQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_xFbvMb_gEeaMDuGP8d6uKQ" name="klient" type="_XZ_2IL-8EeaMDuGP8d6uKQ" association="_xFbIIL_gEeaMDuGP8d6uKQ"/>
+  </packagedElement>
+</uml:Model>
