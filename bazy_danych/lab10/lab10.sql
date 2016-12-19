@@ -29,6 +29,7 @@ nazwa, koszt czekoladek oraz koszt najdrozszej czekoladki
 
 -- 10.2.1 zostały złożone przez klienta, który ma na imię Antoni,
 
+
 -- 10.2.2 zostały złożone przez klientów z mieszkań (zwróć uwagę na pole ulica),
 
 -- 10.2.3 ★ zostały złożone przez klienta z Krakowa do realizacji w listopadzie 2013 roku.
