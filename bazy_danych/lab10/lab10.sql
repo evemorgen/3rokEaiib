@@ -28,9 +28,12 @@ nazwa, koszt czekoladek oraz koszt najdrozszej czekoladki
 -- 10.2 Napisz zapytanie wyświetlające informacje na temat zamówień (dataRealizacji, idzamowienia) używając odpowiedniego operatora in/not in/exists/any/all, które:
 
 -- 10.2.1 zostały złożone przez klienta, który ma na imię Antoni,
-
+select datarealizacji, idzamowienia from zamowienia where idklienta in (select idklienta from klienci where nazwa like '%Antoni%');
+select datarealizacji, idzamowienia from zamowienia where idklienta = any (select idklienta from klienci where nazwa like '%Antoni%');
 
 -- 10.2.2 zostały złożone przez klientów z mieszkań (zwróć uwagę na pole ulica),
+select datarealizacji, idzamowienia from zamowienia where idklienta in (select idklienta from klienci where ulica ~ '\d{1,2}\/\d{1,2}');
+select datarealizacji, idzamowienia from zamowienia where idklienta = any (select idklienta from klienci where ulica ~ '\d{1,2}\/\d{1,2}');
 
 -- 10.2.3 ★ zostały złożone przez klienta z Krakowa do realizacji w listopadzie 2013 roku.
 
