@@ -1,6 +1,6 @@
-function indeks = root(ind, tabl)
+function indeks = root(tabl, ind)
     indeks = ind;
-    while ind ~= tabl(ind)
-        ind = tabl(ind);
+    while indeks ~= tabl(indeks)
+        indeks = tabl(indeks);
     end
 end
