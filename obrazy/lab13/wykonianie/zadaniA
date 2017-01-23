@@ -1,0 +1,8 @@
+%% 1. Czyścimy
+close all;
+clearvars;
+clc;
+
+%% 2. Wczytujemy
+fale = imread('dwieFale.bmp');
+imshow(fale);
