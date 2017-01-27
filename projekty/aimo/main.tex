@@ -1,0 +1,46 @@
+\documentclass{sprawozdanie-agh}
+\title{AiMO - strefa płatnego parkowania}
+\usepackage{lscape}
+\usepackage[final]{pdfpages}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{geometry}
+\usepackage{sectsty}
+\sectionfont{\fontsize{18}{22}\selectfont}
+\usepackage{array}
+\usepackage{lscape}
+\usepackage[final]{pdfpages}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ right=20mm,
+ top=35mm,
+}
+
+\makeatletter
+
+\begin{document}
+
+\przedmiot{Analiza i Modelowanie Oprogramowania}
+\tytul{Projekt aplikacji do zarządzania parkingiem}
+\podtytul{...}
+\kierunek{Informatyka}
+\autor{Patryk Gałczyński}
+\data{Kraków, 27 stycznia 2017}
+
+\stronatytulowa{}
+
+\input{opis/analiza.tex}
+\input{opis/aktorzy.tex}
+\input{uzycia/uzycia.tex}
+\input{sekwencji/sekwencji.tex}
+\input{aktywnosci/aktywnosci.tex}
+\input{klas/klas.tex}
+\input{obiektow/obiektow.tex}
+\input{stanu/stanu.tex}
+
+
+\end{document}
