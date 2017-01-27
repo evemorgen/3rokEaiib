@@ -12,13 +12,38 @@
 -- 12.2.3 ★ Utwórz wyzwalacz modyfikujący (przy aktualizacji rekordów w tabeli czekoladki) pole cena w tabeli pudelka, jeżeli cena jest mniejsza niż 105% kosztów wytworzenia danego pudełka czekoladek (koszt wytworzenia czekoladek + koszt pudełka 0,90 zł). W takim przypadku cenę należy ustawić na kwotę 105% kosztów wytworzenia.
 
 -- 12.3.1 Rozpocznij transakcję: begin.
+begin;
 -- 12.3.2 Wykonaj szereg dowolnych zapytań DML (insert/update/delete).
+insert into klienci values ('aaaaaaa', 'dupa', 'Hello Moto', 'Sosnowiec', null, 'a', 'a', 'b', null, null, null);
 -- 12.3.3 Sprawdź czy efekty w/w zapytań są widoczne w bazie danych (w tej samej sesji oraz w nowo utworzonej sesji).
+select * from klienci where idklienta = 'aaaaaaa';
+ idklienta | haslo |   nazwa    |  miasto   | kod | adres | email | telefon | fax | nip | regon
+-----------+-------+------------+-----------+-----+-------+-------+---------+-----+-----+-------
+ aaaaaaa   | dupa  | Hello Moto | Sosnowiec |     | a     | a     | b       |     |     |
+(1 row)
 -- 12.3.4 Anuluj transakcję: rollback.
+rollback;
 -- 12.3.5 Sprawdź czy efekty zapytań z punktu 3 są wciąż widoczne w bazie danych (w tej samej sesji oraz w nowo utworzonej sesji).
+select * from klienci where idklienta = 'aaaaaaa';
+ idklienta | haslo | nazwa | miasto | kod | adres | email | telefon | fax | nip | regon
+-----------+-------+-------+--------+-----+-------+-------+---------+-----+-----+-------
+(0 rows)
 -- 12.3.6 Powtórz kroki 1-3. Zatwierdź transakcję: commit.
+galcpatr=> begin;
+BEGIN
+galcpatr=> insert into klienci values ('aaaaaaa', 'dupa', 'Hello Moto', 'Sosnowiec', null, 'a', 'a', 'b', null, null, null);
+INSERT 0 1
+galcpatr=> commit;
+COMMIT
 -- 12.3.7 Sprawdź czy efekty zapytań z punktu 6 są wciąż widoczne w bazie danych (w tej samej sesji oraz w nowo utworzonej sesji).
+galcpatr=> select * from klienci where idklienta = 'aaaaaaa';
+ idklienta | haslo |   nazwa    |  miasto   | kod | adres | email | telefon | fax | nip | regon
+-----------+-------+------------+-----------+-----+-------+-------+---------+-----+-----+-------
+aaaaaaa   | dupa  | Hello Moto | Sosnowiec |     | a     | a     | b       |     |     |
+(1 row)
+
 -- 12.3.8 ★ wykonaj powyższe testy zmieniając poziom izolacji transakcji http://www.postgresql.org/docs/9.1/static/sql-set-transaction.html.
+fajne ale nie.
 
 -- 12.4.1 Udziel dostępu do wykonywania zapytań select 2-giej osobie w grupie do tabeli kompozycje (schemat kwiaciarnia); przetestuj.
 grant select on kompozycje to dudaszym;
