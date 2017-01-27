@@ -28,7 +28,11 @@
 -- 12.4.6 Usuń przyznane prawa. Sprawdź, czy 2-ga osoba może teraz wykonać jakieś operacje.
 
 -- 12.5.1 Utwórz widok (perspektywę), który zwraca: identyfikator zamówienia, datę realizacji, nazwę i adres klienta dla każdego zamówienia - zapytanie takie może być używane np. przez dział wysyłki.
+create view DzialWysylki as select idzamowienia, datarealizacji, nazwa, ulica, miejscowosc from zamowienia natural join klienci ;
+select * from dzialWysylki;
 -- 12.5.2 Udostępnij widok z poprzedniego zadania innemu użytkownikowi do odczytu (pracownikowi działu zamówień ;))
+grant select on dzialwysylki to dudaszym;
+
 
 -- 12.6.1 Wykonaj kopie zapasową wszystkich schematów Twojej bazy danych wykorzystując polecenie pg_dump. Przećwicz opcje: -a oraz –inserts. Zobacz co jest rezultatem działania w/w polecenia. Jak odtworzyć taką kopię?
 pg_dump --inserts -f ja.sql galcpatr
