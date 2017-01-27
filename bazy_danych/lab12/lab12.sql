@@ -21,11 +21,23 @@
 -- 12.3.8 ★ wykonaj powyższe testy zmieniając poziom izolacji transakcji http://www.postgresql.org/docs/9.1/static/sql-set-transaction.html.
 
 -- 12.4.1 Udziel dostępu do wykonywania zapytań select 2-giej osobie w grupie do tabeli kompozycje (schemat kwiaciarnia); przetestuj.
+grant select on kompozycje to dudaszym;
+
 -- 12.4.2 Udziel dostępu do wykonywania zapytań select 2-giej osobie w grupie do schematu firma; przetestuj.
+grant select on all tables in schema firma to dudaszym;
+
 -- 12.4.3 Udziel dostępu do dodawania, usuwania, modyfikacji wierszy 2-giej osobie w grupie do tabeli klienci (schemat kwiaciarnia); przetestuj.
+grant insert, update, delete on klienci to dudaszym;
+
 -- 12.4.4 Zezwól 2-giej osobie na tworzenie nowych obiektów w schemacie firma; przetestuj.
+grant create on schema firma to dudaszym;
 -- 12.4.5 Powtórz ćwiczenie zamieniając się rolami.
+nie mam koleguf :c
 -- 12.4.6 Usuń przyznane prawa. Sprawdź, czy 2-ga osoba może teraz wykonać jakieś operacje.
+revoke select on kompozycje from dudaszym;
+revoke select on all tables in schema firma from dudaszym;
+revoke insert, update, delete on klienci from dudaszym;
+revoke create on schema firma from dudaszym;
 
 -- 12.5.1 Utwórz widok (perspektywę), który zwraca: identyfikator zamówienia, datę realizacji, nazwę i adres klienta dla każdego zamówienia - zapytanie takie może być używane np. przez dział wysyłki.
 create view DzialWysylki as select idzamowienia, datarealizacji, nazwa, ulica, miejscowosc from zamowienia natural join klienci ;
