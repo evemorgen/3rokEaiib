@@ -3,7 +3,40 @@
 -- zmniejsza liczbę dostępnych kompozycji w tabeli kompozycje,
 -- dodaje rekord do tabeli zapotrzebowanie, jeśli stan danej kompozycji spada poniżej stanu minimalnego.
 
+create or replace function do_trigera()
+returns trigger
+language plpgsql
+as $$
+    declare
+        rabacik int;
+        zaop record;
+    begin
+        select rabat(NEW.idklienta) into rabacik;
+        update kompozycje set stan = stan - 1 where idkompozycji = NEW.idkompozycji;
+        select * into zaop from kompozycje where idkompozycji = NEW.idkompozycji;
+        IF zaop.stan < zaop.minimum THEN
+            insert into zapotrzebowanie values (NEW.idkompozycji, NOW());
+        END IF;
+        return null;
+    end;
+$$;
+
+create trigger zlozenie_zamowienia after insert on zamowienia for each row execute procedure do_trigera();
+
 -- 12.1.2 ★ Utwórz wyzwalacz (w schemacie kwiaciarnia), który automatycznie usuwa rekordy z tabeli zapotrzebowanie, jeżeli po dostawie (after update) wzrasta stan danej kompozycji powyżej minimum. Przetestuj działanie wyzwalacza.
+create or replace function do_trigera2()
+returns trigger
+language plpgsql
+as $$
+    begin
+        IF NEW.stan >= NEW.minimum THEN
+            delete from zapotrzebowanie where idkompozycji = NEW.idkompozycji;
+        END IF;
+        return null;
+    end;
+$$;
+
+create trigger update_zaopatrzenia after update on kompozycje for each row execute procedure do_trigera2();
 
 -- 12.2.1 Utwórz wyzwalacz modyfikujący (przy wstawianiu i aktualizacji rekordów w tabeli pudelka) pole cena w tabeli pudelka, jeżeli cena jest mniejsza niż 105% kosztów wytworzenia danego pudełka czekoladek (koszt wytworzenia czekoladek + koszt pudełka 0,90 zł). W takim przypadku cenę należy ustawić na kwotę 105% kosztów wytworzenia.
 
