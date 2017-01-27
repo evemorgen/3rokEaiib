@@ -1,0 +1,464 @@
+\newpage
+\section{PSPEC}
+\begin{multicols}{2}
+\subsection{Spis procesów}
+
+\begin{enumerate}
+	\item Wydanie karnetu
+    	\begin{enumerate}
+        	\item Wydanie Karnetu
+            	\begin{enumerate}
+                	\item Wybór rodzaju karnetu
+                    \item Generowanie id karty
+                    \item Przypisanie id do karty
+                    \item Obliczanie końcowej ceny karnetu
+                \end{enumerate}
+            \item Obliczenie zniżki
+            	\begin{enumerate}
+                	\item Zniżki wiekowej
+                    \item Zniżki grupowej
+                \end{enumerate}
+        \end{enumerate}
+    \item Dział obsługi klienta
+    	\begin{enumerate}
+        	\item Zwrot karnetu
+            	\begin{enumerate}
+                	\item Sprawdzenie ilości punktów
+                    \item Weryfikacja aktywacji karnetu
+                \end{enumerate}
+            \item Drukowanie faktur
+        \end{enumerate}
+    \item Obsługa szkółki narciarskiej
+    	\begin{enumerate}
+        	\item Rezerwacja instruktora
+            \item Obliczanie ceny zajęć
+            \item Prowadzenie rejestru zajęć
+        \end{enumerate}
+    \item Obsługa wypożyczalni
+    	\begin{enumerate}
+        	\item Wynajęcie sprzętu
+            	\begin{enumerate}
+                	\item Stworzenie kodu wypożyczenia
+                    \item Zapisanie wypożyczenia
+                \end{enumerate}
+            \item Obliczenie ceny wypożyczenia
+            \item Przyjęcie zwracanego sprzętu
+    	\end{enumerate}
+    \item Obsługa serwisu
+    	\begin{enumerate}
+        	\item Serwisowanie sprzętu
+            	\begin{enumerate}
+                	\item Przyjęcie zlecenia
+                    \item Stworzenie kodu zlecenia
+                \end{enumerate}
+            \item Obliczanie ceny wypożyczenia
+            \item Wydanie sprzętu po serwisowaniu
+        \end{enumerate}
+    \item Obsługa bramek
+    	\begin{enumerate}
+        	\item Identyfikacja karnetu
+            \item Zapisanie czasu odbicia
+            \item Odjęcie punktów
+            \item Podjęcie decyzji o przepuszczeniu
+        \end{enumerate}
+    \item Obsługa płatności
+    	\begin{enumerate}
+        	\item Wybór sposobu płatności
+            \item Zapłata gotówką
+            	\begin{enumerate}
+                	\item Wpłata gotówki
+                \end{enumerate}
+            \item Zapłata kartą
+            	\begin{enumerate}
+                	\item Zrealizowanie płatności kartą
+                \end{enumerate}
+            \item Zapłata online
+            	\begin{enumerate}
+                	\item Zrealizowanie płatności online
+                \end{enumerate}
+            \item Odnotowanie zapłaty
+        \end{enumerate}
+\end{enumerate}
+\end{multicols}
+
+\newpage
+\subsection{Karnety}
+\subsubsection{Wybór rodzaju karnetu.}
+\begin{algorithm}[caption={1.1.1 Wybór rodzaju karnetu.}, label={alg1}]
+ input: zadanieKupnaKarnetu(rodzajKarnetu, czas=0)
+ output: wybranyKarnet, kwotaDoZaplaty
+ 
+begin
+  if rodzajKarnetu == "czasowy" 
+    wybranyKarnet $gets$ "CZAS"
+  else if rodzajKarnetu == "na punkty" 
+    wybranyKarnet $gets$ "PKT"
+  end if
+
+  if ulga == "normalny" 
+    wybranyKarnet $gets$ "N_" + wybranyKarnet
+  else if ulga == "wiek" 
+    wybranyKarnet $gets$ "W_" + wybranyKarnet
+  else if ulga == "grupa" 
+    wybranyKarnet $gets$ "G_" + wybranyKarnet
+  end if
+
+  id $gets$ generowanieIdKarty(wybranyKarnet)
+  cena $gets$ obliczenieCenyKarnetu(wybranyKarnet)
+  karnet $gets$ przypiszId(id)
+  return karnet, cena
+end
+\end{algorithm}
+
+\subsubsection{Generowanie id karty}
+\begin{algorithm}[caption={1.1.2 Generowanie id karty}, label={alg1}]
+  input: wybranyKarnetdaneOsobowe
+  output: id
+
+begin
+  idTemp $gets$ md5(danePersonalne + czas.now)
+  id $gets$ idTemp + wybranyKarnet
+  przypiszId()
+end
+\end{algorithm}
+
+\subsubsection{Przypisanie id do karnetu}
+\begin{algorithm}[caption={1.1.3 Przypisanie id do karnetu}, label={alg1}]
+  input: id
+  output: karnet
+  
+begin
+  karnet $gets$ FALSE
+  dodajKarnet(id)
+  if dodajKarnet(id) == true 
+    karnet $gets$ true
+  else
+    przypiszId()
+end
+\end{algorithm}
+
+\subsubsection{Obliczenie ceny karnetu}
+\begin{algorithm}[caption={1.1.4 Obliczenie ceny karnetu}, label={alg1}]
+input: wybranyKarnet
+  output: kwotaDoZaplaty
+  
+begin
+  if ulga == "normalny" 
+    kwotaDoZaplaty $gets$ kwotaDoZaplaty
+  else if ulga == "ulgowy" 
+    kwotaDoZaplaty $gets$ 0.7 * kwotaDoZaplaty
+else if ulga == "grupowy" 
+    kwotaDoZaplaty $gets$ 0.9 * kwotaDoZaplaty
+  end if
+  wyborSposobuPlatnosci()
+end
+\end{algorithm}
+
+\subsubsection{Zwrot karnetu. Sprawdzenie ilości punktów}
+\begin{algorithm}[caption={2.1.1 Zwrot karnetu.Sprawdzenie ilości punktów}, label={alg1}]
+  input: karnet
+  output: kwotaDoZwrotu
+  
+begin
+  if karnet.iloscPunktow > 0 
+    kwotaDoZwrotu $gets$ 10 + karnet.iloscPunktow * 2
+  else 
+    kwotaDoZwrotu $gets$ 10
+  return kwotaDoZwrotu
+end
+\end{algorithm}
+
+\subsection{Faktury}
+\subsubsection{Drukowanie faktur}
+\begin{algorithm}[caption={2.2 Drukowanie faktur}, label={alg1}]
+  input: daneDoFaktury
+  output: faktura
+  
+begin
+  faktura $gets$ FALSE
+  if drukowanie(daneDoFaktury) == true 
+    faktura $gets$ true
+  else
+    drukujFakture()
+  return faktura
+end
+\end{algorithm}
+
+\subsection{Instruktorzy}
+\subsubsection{Rezerwacja instruktora}
+\begin{algorithm}[caption={3.1 Rezerwacja instruktora}, label={alg1}]
+  input: daneOsobowe, terminLekcji, idInstruktora
+  output: lekcja
+begin
+  foreach idInstruktora
+    if idInstruktora.terminLekcji == null 
+      lekcja.id $gets$ daneOsobowe
+      lekcja.idInstruktora $gets$ idInstruktora
+      lekcja.termin $gets$ terminLekcji
+      dodajLekcje(lekcja)
+      obliczanieCenyZajec()
+    else
+      return message $gets$ "termin zajety"
+  end
+end
+\end{algorithm}
+
+\subsubsection{Obliczanie ceny zajęć}
+\begin{algorithm}[caption={3.2 Obliczanie ceny zajęć}, label={alg1}]
+  input: wybranaLekcja
+  output: kwotaDoZaplaty
+
+begin  
+  koszt $gets$ pobierzKosztInstruktora(lekcja.idInstruktora)
+  kwotaDoZaplaty $gets$ koszt
+  wyborSposobuPlatnosci()
+end
+\end{algorithm}
+
+\newpage
+\subsection{Wypożyczalnia}
+\subsubsection{Wynajęcie sprzętu. Zapisanie wypożyczenia}
+\begin{algorithm}[caption={4.1.1 Wynajęcie sprzętu. Zapisanie wypożyczenia}, label={alg1}]
+  input: wybranySprzet, idPracownika, idSprzetu
+  output: wypozyczenie
+  
+begin
+  wypozyczenie.idSprzetu $gets$ idSprzetu
+  wypozyczenie.idPracownika $gets$ idPracownika
+  stworzenieKoduWypozyczenia()
+end
+\end{algorithm}
+
+\subsubsection{Wynajęcie sprzętu. Stworzenie kodu wypożyczenia}
+\begin{algorithm}[caption={4.1.2 Wynajęcie sprzętu. Stworzenie kodu wypożyczenia}, label={alg1}]
+  input: wypozyczenie, daneOsobowe
+  output: idWypozyczenia
+begin
+  wypozyczenie.idWypozyczenia $gets$ md5(daneOsobowe + wypozyczenie.idSprzetu)
+  dodajWypozyczenie(wypozyczenie)
+  return wypozyczenie.idWypozyczenia
+end
+\end{algorithm}
+
+\subsubsection{Obliczanie ceny wypożyczenia}
+\begin{algorithm}[caption={4.2 Obliczanie ceny wypożyczenia}, label={alg1}]
+  input: wybranySprzet
+  output: kwotaDoZaplaty
+begin
+  koszt $gets$ pobierzKosztSprzetu(wybranySprzet)
+  kwotaDoZaplaty $gets$ koszt
+  wyborSposobuPlatnosci()
+end
+\end{algorithm}
+
+\subsubsection{Przyjęcie zwracanego sprzętu}
+\begin{algorithm}[caption={4.3 Przyjęcie zwracanego sprzętu}, label={alg1}]
+  input: idWypozyczenia, idPracownika
+  output: data
+begin
+  data $gets$ date.now
+  dodajZwrotDoBazy(idWypozyczenia, data, idPracownika)
+end
+\end{algorithm}
+
+\subsection{Serwis}
+\subsubsection{Serwisowanie sprzętu. Przyjęcie zlecenia}
+\begin{algorithm}[caption={5.1.1 Serwisowanie sprzętu. Przyjęcie zlecenia}, label={alg1}]
+
+  input: wybranaUsluga, idPracownika, sprzet
+  output: noweZlecenie
+begin
+  noweZlecenie.usluga $gets$ wybranaUsluga
+  noweZlecenie.sprzet $gets$ sprzet
+  noweZlecenie.idPracownika $gets$ idPracownika
+  zapiszZlecenieDoBazy(noweZlecenie)
+end
+\end{algorithm}
+
+\subsubsection{Serwisowanie sprzętu. Stworzenie kodu zlecenia}
+\begin{algorithm}[caption={5.1.2 Serwisowanie sprzętu. Stworzenie kodu zlecenia}, label={alg1}]
+  input: noweZlecenie, daneOsobowe
+  output: idZlecenia
+begin
+  noweZlecenie.idZlecenia $gets$ md5(daneOsobowe + czas.now)
+  dodajDoZleceniaSerwisu(noweZlecenie)
+  return noweZlecenie.idZlecenia
+end
+\end{algorithm}
+
+\subsubsection{Obliczenie ceny serwisowania}
+\begin{algorithm}[caption={5.2 Obliczenie ceny serwisowania}, label={alg1}]
+  input: wybraneUslugi
+  output: kwotaDoZaplaty
+  
+begin
+  suma $gets$ 0
+  foreach usluga: wybraneUslugi
+    koszt $gets$ pobierzKosztUslugi(wybranaUsluga)
+    suma += koszt
+  kwotaDoZaplaty $gets$ suma
+  wyborSposobuPlatnosci()
+end
+\end{algorithm}
+
+\subsubsection{Wydanie sprzętu po serwisowaniu}
+\begin{algorithm}[caption={5.3 Wydanie sprzętu po serwisowaniu}, label={alg1}]
+  input: idZlecenia, idPracownika
+  output: sprzet
+  
+begin
+  znajdzSprzet(idZlecenia)
+  data $gets$ date.now
+  dodajWydanieSprzetu(idZlecenia, data, idPracownika)
+  wydajSprzet(sprzet)
+end
+\end{algorithm}
+
+\subsection{Bramki}
+\subsubsection{Identyfikacja karnetu}
+\begin{algorithm}[caption={6.1 Identyfikacja karnetu}, label={alg1}]
+  input: Karnet, aktywneKarnety
+  output: dostep
+  
+begin
+  foreach aktywneKarnety as k
+    if karnet.id $gets$ k.id 
+      if karnet.id == "*CZAS" 
+        if karnet.odbicie+interwal<date.now 
+          dostep $gets$ true
+          zapisanieDatyIGodzinyOdbicia()
+        else
+          dostep $gets$ FALSE
+      else if karnet.id == "*PKT" 
+        if karnet.iloscPkt - kosztOdbicia > 0 
+          dostep $gets$ true
+          odjeciePunktow()
+        else
+          dostep $gets$ FALSE
+      end if
+    else
+      dostep $gets$ FALSE
+    end if
+  end
+end
+
+\end{algorithm}
+
+\subsubsection{Zapisanie daty i godziny odbicia}
+\begin{algorithm}[caption={6.2 Zapisanie daty i godziny odbicia}, label={alg1}]
+  input: karnet, dostep
+  output: odbicie
+  
+begin
+  karnet.odbicie $gets$ date.now
+  zapiszOdbicieWBazie(karnet)
+  return karnet.odbicie
+end
+\end{algorithm}
+
+\subsubsection{Odjęcie punktów}
+\begin{algorithm}[caption={6.3 Odjęcie punktów}, label={alg1}]
+  input: karnet, bramka
+  output: iloscPkt
+begin
+  karnet.iloscPkt $gets$ karnet.iloscPkt - bramka.kosztOdbicia
+  return karnet
+end
+\end{algorithm}
+
+\subsection{Płatność}
+\subsubsection{Wybór sposobu zapłaty}
+\begin{algorithm}[caption={7.1 Wybór sposobu zapłaty}, label={alg1}]
+  input: sposobZaplaty, kwotaDoZaplaty
+  output: kwotaDoZaplaty
+begin
+  if sposobZaplaty == "gotowka" 
+    zaplataGotowka() 
+  else if sposobZaplaty == "karta" 
+    zaplataKarta()
+  else if sposobZaplaty == "online" 
+    zaplataOnline()
+  end if
+  return kwotaDoZaplaty
+end
+\end{algorithm}
+
+\subsubsection{Zapłata gotówką}
+\begin{algorithm}[caption={7.2.1 Zapłata gotówką}, label={alg1}]
+  input: kwotaDoZaplaty
+  output: zaplacono, idZaplaty
+begin
+  zaplacono $gets$ kwotaDoZaplaty
+  idZaplaty $gets$ wygeneruj
+  odnotowanieZaplaty()
+end
+\end{algorithm}
+
+\subsubsection{Zapłata kartą}
+\begin{algorithm}[caption={7.3.1 Zapłata kartą}, label={alg1}]
+input: kwotaDoZaplaty
+  output: zaplacono, idZaplaty
+begin
+  while pinNieprawidlowy and iloscProb > 0
+    podajPin
+    iloscProb--
+  end
+  if pinPrawidlowy 
+    dokonajZaplaty(kwotaDoZaplaty)
+    if dokonajZaplaty(kwotaDoZaplaty) == true 
+      zaplacono =kwotaDoZaplaty
+      idZaplaty $gets$ wygeneruj
+      odnotowanieZaplaty()
+    else
+      return "odmowa dostepu"
+    end if
+  end if
+end
+\end{algorithm}
+
+\subsubsection{Zapłata online}
+\begin{algorithm}[caption={7.4.1 Zapłata online}, label={alg1}]
+  input: kwotaDoZaplaty
+  output: zaplacono, idZaplaty
+begin
+  polaczZApiDoPlatnosci
+  dokonajZaplaty(kwotaDoZaplaty)
+  if dokonajZaplaty(kwotaDoZaplaty) == true 
+    zaplacono =kwotaDoZaplaty
+    idZaplaty $gets$ wygeneruj
+    odnotowanieZaplaty()
+  else
+    return message $gets$ "odmowa dostepu"
+  end if
+end
+\end{algorithm}
+
+\subsubsection{Odnotowanie zapłaty}
+\begin{algorithm}[caption={7.5 Odnotowanie zapłaty}, label={alg1}]
+  input: idZaplaty, zaplacono
+  output: daneParagonu
+begin
+  ksiegujZaplate(idZaplaty, zaplacono)
+  daneParagonu.id $gets$ kolejnePorzadkoweId
+  daneParagonu.idZaplaty $gets$ idZaplaty
+  daneParagonu.kwota $gets$ zaplacono
+  drukowanieParagonu()
+end
+\end{algorithm}
+
+\subsubsection{Drukowanie paragonu}
+\begin{algorithm}[caption={7.6 Drukowanie paragonu}, label={alg1}]
+  input: daneParagonu
+  output: paragon
+begin
+  paragon $gets$ false
+  druk $gets$ drukujParagon(daneParagonu)
+  if druk == true 
+    paragon $gets$ true
+    return paragon
+  else
+    drukowanieParagonu
+  end if
+end
+\end{algorithm}
+

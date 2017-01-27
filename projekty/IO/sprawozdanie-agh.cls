@@ -1,5 +1,5 @@
-\ProvidesClass{sprawozdanie-agh}
-\ProcessOptions\LoadClass[a4paper,oneside]{article}
+\ProvidesClass{sprawozdanie-agh} 
+\ProcessOptions\LoadClass[a4paper,oneside]{article} 
 
 % Pakiety
 \RequirePackage[polish]{babel}
@@ -35,7 +35,7 @@
 	\begin{titlepage}
 		\begin{center}
 			%\vspace*{3cm}
-
+		
 			% Góra strony
 			\textsc{\LARGE \bfseries Akademia G{\'o}rniczo-Hutnicza}\\[0.2cm]
 			\textsc{\large Wydzia\l \space Elektrotechniki, Automatyki, Informatyki i In{\.z}ynieri Biomedycznej}\\
@@ -55,7 +55,7 @@
 				\large \@podtytul
 			}\\[0.4cm]
 			\HRule \\[1.5cm]
-
+			
 			% Autor
 			\begin{minipage}{0.7\textwidth}
 				\begin{center}
@@ -74,7 +74,7 @@
 			{\large \@data}
 		\end{center}
 	\end{titlepage}
-
+	
 	% Licznik strony
 	\setcounter{page}{2}
 }
