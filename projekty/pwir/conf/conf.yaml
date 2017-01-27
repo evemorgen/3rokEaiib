@@ -1,0 +1,7 @@
+{
+  "pg_host": "10.177.51.122",
+  "pg_port": 5432,
+  "pg_db": 'shadow_killer',
+  "pg_user": "shadow_killer_user",
+  "pg_pass": "bad_password1"
+}

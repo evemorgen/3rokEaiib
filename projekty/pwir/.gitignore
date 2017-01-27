@@ -1,0 +1,17 @@
+# Eclipse files
+.*.swp
+*~
+/.project
+/.pydevproject
+
+# python generated files
+*.pyc
+*.pyo
+__pycache__/*
+
+# tox generated files
+/lib/*
+/build/
+/.coverage
+/.tox
+/tests/.cache

@@ -1,0 +1,6 @@
+appname: PwirProject
+handler: main.py#APPLICATION
+interfaces: {}
+sdk_version: python_3.5.1.1
+servicename: paas-tests
+version: FROM_TAG
