@@ -124,5 +124,6 @@ create sequence if not EXISTS s1 start 1;
 alter sequence s1 restart 1;
 select nextval('s1'), id from (select idpudelka as id from pudelka order by idpudelka) as abba;
 
+select (select count(*) + 1 from pudelka p where p.idpudelka > pudelka.idpudelka), idpudelka from pudelka order by idpudelka desc;
 -- Użyj podzapytania w klauzuli select:
 -- select kolumna1, kolumna2, (select ...) from ...
