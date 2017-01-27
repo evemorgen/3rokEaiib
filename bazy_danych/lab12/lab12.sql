@@ -2,7 +2,6 @@
 -- oblicza rabat dla sprzedającego (użyj funkcji z zadania 11.7) i modyfikuje pole cena w dodawanym rekordzie,
 -- zmniejsza liczbę dostępnych kompozycji w tabeli kompozycje,
 -- dodaje rekord do tabeli zapotrzebowanie, jeśli stan danej kompozycji spada poniżej stanu minimalnego.
-
 create or replace function do_trigera()
 returns trigger
 language plpgsql
@@ -20,7 +19,6 @@ as $$
         return null;
     end;
 $$;
-
 create trigger zlozenie_zamowienia after insert on zamowienia for each row execute procedure do_trigera();
 
 -- 12.1.2 ★ Utwórz wyzwalacz (w schemacie kwiaciarnia), który automatycznie usuwa rekordy z tabeli zapotrzebowanie, jeżeli po dostawie (after update) wzrasta stan danej kompozycji powyżej minimum. Przetestuj działanie wyzwalacza.
@@ -35,14 +33,18 @@ as $$
         return null;
     end;
 $$;
-
 create trigger update_zaopatrzenia after update on kompozycje for each row execute procedure do_trigera2();
 
+
 -- 12.2.1 Utwórz wyzwalacz modyfikujący (przy wstawianiu i aktualizacji rekordów w tabeli pudelka) pole cena w tabeli pudelka, jeżeli cena jest mniejsza niż 105% kosztów wytworzenia danego pudełka czekoladek (koszt wytworzenia czekoladek + koszt pudełka 0,90 zł). W takim przypadku cenę należy ustawić na kwotę 105% kosztów wytworzenia.
+select 'not gonna lie but this shit is same as from 1st exc...';
 
 -- 12.2.2 ★ Utwórz wyzwalacz modyfikujący (przy wstawianiu i aktualizacji rekordów w tabeli zawartosc) pole cena w tabeli pudelka, jeżeli cena jest mniejsza niż 105% kosztów wytworzenia danego pudełka czekoladek (koszt wytworzenia czekoladek + koszt pudełka 0,90 zł). W takim przypadku cenę należy ustawić na kwotę 105% kosztów wytworzenia.
+select 'not gonna lie but this shit is same as from 1st exc...';
 
 -- 12.2.3 ★ Utwórz wyzwalacz modyfikujący (przy aktualizacji rekordów w tabeli czekoladki) pole cena w tabeli pudelka, jeżeli cena jest mniejsza niż 105% kosztów wytworzenia danego pudełka czekoladek (koszt wytworzenia czekoladek + koszt pudełka 0,90 zł). W takim przypadku cenę należy ustawić na kwotę 105% kosztów wytworzenia.
+select 'not gonna lie but this shit is same as from 1st exc...';
+
 
 -- 12.3.1 Rozpocznij transakcję: begin.
 begin;
@@ -76,7 +78,8 @@ aaaaaaa   | dupa  | Hello Moto | Sosnowiec |     | a     | a     | b       |    
 (1 row)
 
 -- 12.3.8 ★ wykonaj powyższe testy zmieniając poziom izolacji transakcji http://www.postgresql.org/docs/9.1/static/sql-set-transaction.html.
-fajne ale nie.
+select 'fajne ale nie';.
+
 
 -- 12.4.1 Udziel dostępu do wykonywania zapytań select 2-giej osobie w grupie do tabeli kompozycje (schemat kwiaciarnia); przetestuj.
 grant select on kompozycje to dudaszym;
@@ -96,6 +99,7 @@ revoke select on kompozycje from dudaszym;
 revoke select on all tables in schema firma from dudaszym;
 revoke insert, update, delete on klienci from dudaszym;
 revoke create on schema firma from dudaszym;
+
 
 -- 12.5.1 Utwórz widok (perspektywę), który zwraca: identyfikator zamówienia, datę realizacji, nazwę i adres klienta dla każdego zamówienia - zapytanie takie może być używane np. przez dział wysyłki.
 create view DzialWysylki as select idzamowienia, datarealizacji, nazwa, ulica, miejscowosc from zamowienia natural join klienci ;
