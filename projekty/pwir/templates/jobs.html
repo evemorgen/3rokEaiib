@@ -1,0 +1,56 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<br />
+<div style="text-align: center">
+    <h1 style="font-size: 2em"> ShadowKiller </h1>
+</label>
+</div>
+<div style="padding: 0% 5%"class="btn-group" role="group">
+    <a class="btn btn-default" href="main.html">Main</a>
+    <a class="btn btn-default" href="jobs.html">Jobs</a>
+    <a class="btn btn-default" href="workers.html">Workers</a>
+</div>
+            <div class='workers'>
+                <div style="text-align: center;">
+                    <h1 style="font-size: 5em"> Jobs summary </h1>
+                </div>
+
+                <table class="table">
+                  <thead class="thead-inverse">
+                    <tr>
+                      <th>#</th>
+                      <th>Username</th>
+                      <th>Hash</th>
+                      <th>Status</th>
+                      <th>Result</th>
+                      <th>cluster</th>
+                      <th>Worker id</th>
+                      <th>Last update</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% set i = 1 %}
+                    {% for job in jobs %}
+                    <tr>
+                      <th scope="row">{{ i }}</th>
+                      <td>{{job[0]}}</td>
+                      <td>{{job[1]}}</td>
+                      <td>{{job[2]}}</td>
+                      <td>{{job[3]}}</td>
+                      <td>{{job[4]}}</td>
+                      <td>{{job[5]}}</td>
+                      <td>{{str(job[6])}}</td>
+                    </tr>
+                    {% set i += 1 %}
+                    {% end %}
+                  </tbody>
+                </table>
+            </div>
+            
+</body>
+</html>

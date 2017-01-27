@@ -1,0 +1,14 @@
+export DBUSER=shadow_killer_user
+export DBNAME=shadow_killer
+export DBPASS=bad_password1
+
+
+# ubuntu - default installation
+export PGHOST=/var/run/postgresql
+export PGADMIN=postgres
+
+# ipx
+#export PGHOST=/pgdata/5432/data/
+#export PGADMIN=pguser
+
+export PGDO="sudo -i -u $PGADMIN"
