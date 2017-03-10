@@ -5,7 +5,7 @@
 
 Na zajęciach preferowane jest używanie Eclips'a ale mnie osobiście do siebie nie przekonał. Postanowiłem po staroświecku używać stałego zestawu czyli Vim + make
 
-Przydatne linki na początek:
+Przydatne linki na początek: <br>
 1. [Dobry tutorial dla win/mac według którego mi udało się wystartować](https://abboudscorner.wordpress.com/2014/10/05/set-up-a-barebones-stm32f4-development-environment-windows-mac/) <br>
 2. [Datasheet zestawu którego używam](http://www.st.com/content/ccc/resource/technical/document/user_manual/70/fe/4a/3f/e7/e1/4f/7d/DM00039084.pdf/files/DM00039084.pdf/jcr:content/translations/en.DM00039084.pdf) <br>
 3. [Repo z przygotowanym hello world i make'iem](https://github.com/TDAbboud/STM32F4_Templates) <br>
@@ -50,8 +50,8 @@ st-util 1.3.1-4-g9d08810
 ```
 
 Czas na hello world: <br>
-1. klonujemy repo z linka powyżej
-2. budujemy hexa
+1. klonujemy repo z linka powyżej <br>
+2. budujemy hexa <br>
 ```
 cd STM32F4_Templates/Barebones_MacOSX
 
@@ -66,5 +66,5 @@ st-flash 1.3.1-4-g9d08810
 ...
 2017-03-10T22:49:11 INFO src/common.c: Flash written and verified! jolly good!
 ```
-3. Po restarcie czarnym guziorem,  czerwony led powinien zacząć blinkować.
+3. Po restarcie czarnym guziorem,  czerwony led powinien zacząć blinkować. <br>
 I to by było na tyle jak na lab1
