@@ -1,0 +1,2652 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/18/2017 3:50:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PATRYKGACZY93A2"
+  DTS:CreatorName="PATRYKGACZY93A2\evemorgen"
+  DTS:DTSID="{A6A58283-88BF-4775-B6D2-2D1E20390B7C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{D5B00183-B88F-431E-881D-1D4DF65B17E9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{77521296-E774-4C30-9859-9C5D39225D82}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\Mac\Home\Downloads\Sample - Superstore Sales (Excel).xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PATRYKGACZY93A2\SQLEXPRESS.BAZA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1A4F51A4-E823-49A0-8D10-1E8129E044CD}"
+      DTS:ObjectName="PATRYKGACZY93A2\SQLEXPRESS.BAZA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PATRYKGACZY93A2\SQLEXPRESS;Initial Catalog=BAZA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sample - Superstore Sales (Excel).xls]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{840F875E-55B1-4920-8065-21B20FB82B05}"
+      DTS:ObjectName="Sample - Superstore Sales (Excel).xls">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="\\Mac\Home\Downloads\Sample - Superstore Sales (Excel).xls" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Stworzenie tabeli uzytkownicy w BAZA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5efdee6b-36e9-4c71-83aa-2b4006881d69}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Stworzenie tabeli uzytkownicy w BAZA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1A4F51A4-E823-49A0-8D10-1E8129E044CD}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Użytkownicy]&#xA;(&#xA;&#x9;[Id] Int Not null primary key IDENTITY(1,1),&#xA;&#x9;[Region] TEXT NOT NULL,&#xA;    [Manager] TEXT NOT NULL&#xA;)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Stworzenie tabeli zamówienia w BAZA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9E710C78-E582-4A94-BA99-DA0F892C36FA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Stworzenie tabeli zamówienia w BAZA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1A4F51A4-E823-49A0-8D10-1E8129E044CD}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Zamowienia]&#xA;(&#xA;    [Row ID] INT NOT NULL PRIMARY KEY, &#xA;    [Order ID] INT NOT NULL, &#xA;    [Order Date] DATE NOT NULL, &#xA;    [Order Priority] TEXT NOT NULL, &#xA;    [Order Quantity] INT NOT NULL, &#xA;    [Sales] NUMERIC(7, 2) NOT NULL, &#xA;    [Discount] NUMERIC(7, 2) NOT NULL, &#xA;    [Ship Mode] TEXT NOT NULL, &#xA;    [Profit] NUMERIC(7, 2) NOT NULL, &#xA;    [Unit Price] NUMERIC(7, 2) NOT NULL, &#xA;    [Shipping Cost] NUMERIC(7, 2) NOT NULL, &#xA;    [Customer Name] TEXT NOT NULL, &#xA;    [Province] TEXT NOT NULL, &#xA;    [Region] TEXT NOT NULL, &#xA;    [Customer Segment] TEXT NOT NULL, &#xA;    [Product Category] TEXT NOT NULL, &#xA;    [Product Sub-Category] TEXT NOT NULL, &#xA;    [Product Name] TEXT NOT NULL, &#xA;    [Product Container] TEXT NOT NULL, &#xA;    [Product Base Margin] NUMERIC(7, 2) NULL, &#xA;    [Ship Date] DATE NOT NULL&#xA;)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Stworzenie tabeli zwroty w BAZA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{93602434-3615-4b4b-acac-a7c189ae059b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Stworzenie tabeli zwroty w BAZA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1A4F51A4-E823-49A0-8D10-1E8129E044CD}"
+          SQLTask:SqlStatementSource="CREATE TABLE [dbo].[Zwroty]&#xA;(&#xA;    [Order ID] INT NOT NULL PRIMARY KEY, &#xA;    [Status] TEXT NOT NULL&#xA;)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Zaciągnięcie danych z excela"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9CAC349B-53AA-4026-B7A6-269BE7678D36}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Zaciągnięcie danych z excela"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Konwersja tekstu unicode"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input].Columns[Order Priority]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Order Priority"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Priority]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input].Columns[Ship Mode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ship Mode"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Ship Mode]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input].Columns[Customer Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Customer Name"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Customer Name]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input].Columns[Province]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Province"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Province]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Region"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input].Columns[Customer Segment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Customer Segment"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Customer Segment]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input].Columns[Product Category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Product Category"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Category]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input].Columns[Product Sub-Category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Product Sub-Category"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Sub-Category]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input].Columns[Product Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Product Name"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Name]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input].Columns[Product Container]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Product Container"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Container]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Order Priority - string]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Order Priority - string]"
+                      name="Order Priority - string"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Priority]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy Ship Mode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy Ship Mode]"
+                      name="Copy Ship Mode"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Ship Mode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Customer Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Customer Name]"
+                      name="Copy of Customer Name"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Customer Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Province]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Province]"
+                      name="Copy of Province"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Province]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Region]"
+                      name="Copy of Region"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Region]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Customer Segment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Customer Segment]"
+                      name="Copy of Customer Segment"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Customer Segment]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Category]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Category]"
+                      name="Copy of Product Category"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Category]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Sub-Category]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Sub-Category]"
+                      name="Copy of Product Sub-Category"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Sub-Category]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Name]"
+                      name="Copy of Product Name"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Container]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Container]"
+                      name="Copy of Product Container"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Container]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Rozdzielanie priorytetów"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Inputs[Conditional Split Input].Columns[Order Priority]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Order Priority"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Priority]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Outputs[Niski priorytet]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Niski priorytet"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Priority]} == "Low"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[Order Priority] == "Low"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Outputs[Normalny i wysoki priorytet]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Normalny i wysoki priorytet"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Priority]} != "Low"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[Order Priority] != "Low"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Tabela zamówienia Arkusz"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Orders$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Row ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Row ID]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Row ID]"
+                      name="Row ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Order ID]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order ID]"
+                      name="Order ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Order Date]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Date]"
+                      name="Order Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Priority]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Order Priority]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Priority]"
+                      name="Order Priority"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Order Quantity]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Quantity]"
+                      name="Order Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Sales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Sales]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Sales]"
+                      name="Sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Discount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Discount]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Discount]"
+                      name="Discount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Ship Mode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Ship Mode]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Ship Mode]"
+                      name="Ship Mode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Profit]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Profit]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Profit]"
+                      name="Profit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Unit Price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Unit Price]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Unit Price]"
+                      name="Unit Price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Shipping Cost]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Shipping Cost]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Shipping Cost]"
+                      name="Shipping Cost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Customer Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Customer Name]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Customer Name]"
+                      name="Customer Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Province]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Province]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Province]"
+                      name="Province"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Region]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Customer Segment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Customer Segment]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Customer Segment]"
+                      name="Customer Segment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Product Category]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Category]"
+                      name="Product Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Sub-Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Product Sub-Category]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Sub-Category]"
+                      name="Product Sub-Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Product Name]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Name]"
+                      name="Product Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Container]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Product Container]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Container]"
+                      name="Product Container"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Base Margin]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Product Base Margin]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Base Margin]"
+                      name="Product Base Margin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Ship Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Ship Date]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Ship Date]"
+                      name="Ship Date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Row ID]"
+                      dataType="r8"
+                      name="Row ID" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Order ID]"
+                      dataType="r8"
+                      name="Order ID" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Order Date]"
+                      dataType="date"
+                      name="Order Date" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Order Priority]"
+                      dataType="wstr"
+                      length="255"
+                      name="Order Priority" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Order Quantity]"
+                      dataType="r8"
+                      name="Order Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Sales]"
+                      dataType="r8"
+                      name="Sales" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Discount]"
+                      dataType="r8"
+                      name="Discount" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Ship Mode]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ship Mode" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Profit]"
+                      dataType="r8"
+                      name="Profit" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Unit Price]"
+                      dataType="r8"
+                      name="Unit Price" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Shipping Cost]"
+                      dataType="r8"
+                      name="Shipping Cost" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Customer Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Customer Name" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Province]"
+                      dataType="wstr"
+                      length="255"
+                      name="Province" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Customer Segment]"
+                      dataType="wstr"
+                      length="255"
+                      name="Customer Segment" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Product Category]"
+                      dataType="wstr"
+                      length="255"
+                      name="Product Category" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Product Sub-Category]"
+                      dataType="wstr"
+                      length="255"
+                      name="Product Sub-Category" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Product Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Product Name" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Product Container]"
+                      dataType="wstr"
+                      length="255"
+                      name="Product Container" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Product Base Margin]"
+                      dataType="r8"
+                      name="Product Base Margin" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Ship Date]"
+                      dataType="date"
+                      name="Ship Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Row ID]"
+                      dataType="r8"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Row ID]"
+                      name="Row ID" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Order ID]"
+                      dataType="r8"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Order ID]"
+                      name="Order ID" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Order Date]"
+                      dataType="date"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Order Date]"
+                      name="Order Date" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Order Priority]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Order Priority]"
+                      name="Order Priority" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Order Quantity]"
+                      dataType="r8"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Order Quantity]"
+                      name="Order Quantity" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Sales]"
+                      dataType="r8"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Sales]"
+                      name="Sales" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Discount]"
+                      dataType="r8"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Discount]"
+                      name="Discount" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Ship Mode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Ship Mode]"
+                      name="Ship Mode" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Profit]"
+                      dataType="r8"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Profit]"
+                      name="Profit" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Unit Price]"
+                      dataType="r8"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Unit Price]"
+                      name="Unit Price" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Shipping Cost]"
+                      dataType="r8"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Shipping Cost]"
+                      name="Shipping Cost" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Customer Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Customer Name]"
+                      name="Customer Name" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Province]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Province]"
+                      name="Province" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Customer Segment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Customer Segment]"
+                      name="Customer Segment" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Product Category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Product Category]"
+                      name="Product Category" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Product Sub-Category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Product Sub-Category]"
+                      name="Product Sub-Category" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Product Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Product Name]"
+                      name="Product Name" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Product Container]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Product Container]"
+                      name="Product Container" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Product Base Margin]"
+                      dataType="r8"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Product Base Margin]"
+                      name="Product Base Margin" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Ship Date]"
+                      dataType="date"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Ship Date]"
+                      name="Ship Date" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Tabela zamówienia w bazie BAZA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Zamowienia]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PATRYKGACZY93A2\SQLEXPRESS.BAZA]"
+                  connectionManagerRefId="Package.ConnectionManagers[PATRYKGACZY93A2\SQLEXPRESS.BAZA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Row ID]"
+                      cachedDataType="r8"
+                      cachedName="Row ID"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Row ID]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Row ID]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Order ID]"
+                      cachedDataType="r8"
+                      cachedName="Order ID"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Order ID]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order ID]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Order Date]"
+                      cachedDataType="date"
+                      cachedName="Order Date"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Order Date]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Date]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Order Quantity]"
+                      cachedDataType="r8"
+                      cachedName="Order Quantity"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Order Quantity]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order Quantity]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Sales]"
+                      cachedDataType="r8"
+                      cachedName="Sales"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Sales]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Sales]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Discount]"
+                      cachedDataType="r8"
+                      cachedName="Discount"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Discount]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Profit]"
+                      cachedDataType="r8"
+                      cachedName="Profit"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Profit]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Profit]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Unit Price]"
+                      cachedDataType="r8"
+                      cachedName="Unit Price"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Unit Price]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Shipping Cost]"
+                      cachedDataType="r8"
+                      cachedName="Shipping Cost"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Shipping Cost]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Shipping Cost]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Product Base Margin]"
+                      cachedDataType="r8"
+                      cachedName="Product Base Margin"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Product Base Margin]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Product Base Margin]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Ship Date]"
+                      cachedDataType="date"
+                      cachedName="Ship Date"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Ship Date]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Ship Date]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Order Priority - string]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Order Priority - string"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Order Priority]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Order Priority - string]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Copy Ship Mode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy Ship Mode"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Ship Mode]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy Ship Mode]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Copy of Customer Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Customer Name"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Customer Name]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Customer Name]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Copy of Province]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Province"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Province]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Province]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Copy of Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Region"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Region]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Copy of Customer Segment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Customer Segment"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Customer Segment]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Customer Segment]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Copy of Product Category]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Product Category"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Product Category]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Category]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Copy of Product Sub-Category]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Product Sub-Category"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Product Sub-Category]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Sub-Category]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Copy of Product Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Product Name"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Product Name]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Name]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Copy of Product Container]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Product Container"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Product Container]"
+                      lineageId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output].Columns[Copy of Product Container]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Row ID]"
+                      dataType="i4"
+                      name="Row ID" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Order ID]"
+                      dataType="i4"
+                      name="Order ID" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Order Date]"
+                      dataType="dbDate"
+                      name="Order Date" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Order Priority]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Order Priority" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Order Quantity]"
+                      dataType="i4"
+                      name="Order Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Sales]"
+                      dataType="numeric"
+                      name="Sales"
+                      precision="7"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
+                      dataType="numeric"
+                      name="Discount"
+                      precision="7"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Ship Mode]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Ship Mode" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Profit]"
+                      dataType="numeric"
+                      name="Profit"
+                      precision="7"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      dataType="numeric"
+                      name="Unit Price"
+                      precision="7"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Shipping Cost]"
+                      dataType="numeric"
+                      name="Shipping Cost"
+                      precision="7"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Customer Name]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Customer Name" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Province]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Province" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Customer Segment]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Customer Segment" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Product Category]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Product Category" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Product Sub-Category]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Product Sub-Category" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Product Name]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Product Name" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Product Container]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Product Container" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Product Base Margin]"
+                      dataType="numeric"
+                      name="Product Base Margin"
+                      precision="7"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Ship Date]"
+                      dataType="dbDate"
+                      name="Ship Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Zaciągnięcie danych z excela.Paths[Data Conversion Output]"
+              endId="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Zaciągnięcie danych z excela.Paths[Excel Source Output]"
+              endId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Inputs[Conditional Split Input]"
+              name="Excel Source Output"
+              startId="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Zaciągnięcie danych z excela.Paths[Normalny i wysoki priorytet]"
+              endId="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode.Inputs[Data Conversion Input]"
+              name="Normalny i wysoki priorytet"
+              startId="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów.Outputs[Normalny i wysoki priorytet]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Zaciągnięcie danych z excela 1"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{66674314-b11f-4965-9993-86a6597af682}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Zaciągnięcie danych z excela 1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Zaciągnięcie danych z excela 1\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Inputs[Data Conversion Input].Columns[Status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Status"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Status]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]"
+                      name="Copy of Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Status]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Tabela zamówienia Arkusz"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Returns$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Order ID]"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order ID]"
+                      name="Order ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Status]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Order ID]"
+                      dataType="r8"
+                      name="Order ID" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Status]"
+                      dataType="wstr"
+                      length="255"
+                      name="Status" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Order ID]"
+                      dataType="r8"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Order ID]"
+                      name="Order ID" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Status]"
+                      name="Status" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Zapis do tabeli zwroty w bazie BAZA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Zwroty]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PATRYKGACZY93A2\SQLEXPRESS.BAZA]"
+                  connectionManagerRefId="Package.ConnectionManagers[PATRYKGACZY93A2\SQLEXPRESS.BAZA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Order ID]"
+                      cachedDataType="r8"
+                      cachedName="Order ID"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Order ID]"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Order ID]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Inputs[OLE DB Destination Input].Columns[Copy of Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Status"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Order ID]"
+                      dataType="i4"
+                      name="Order ID" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Status" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Zaciągnięcie danych z excela 1.Paths[Data Conversion Output]"
+              endId="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Zaciągnięcie danych z excela 1.Paths[Excel Source Output]"
+              endId="Package\Zaciągnięcie danych z excela 1\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Zaciągnięcie danych z excela 2"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{ef975e4f-873f-4c12-8ddc-cb54e6c8ab19}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Zaciągnięcie danych z excela 2"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Zaciągnięcie danych z excela 2\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Inputs[Data Conversion Input].Columns[Manager]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Manager"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Manager]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Inputs[Data Conversion Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Region"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Region]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Manager]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Manager]"
+                      name="Copy of Manager"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Manager]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Region]"
+                      name="Copy of Region"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Region]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Użytkownicy]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PATRYKGACZY93A2\SQLEXPRESS.BAZA]"
+                  connectionManagerRefId="Package.ConnectionManagers[PATRYKGACZY93A2\SQLEXPRESS.BAZA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Region"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Region]" />
+                    <inputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Manager]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Manager"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Manager]"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Manager]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Manager]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Manager" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Tabela zamówienia Arkusz"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Users$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Region]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Manager]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Manager]"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].Columns[Manager]"
+                      name="Manager"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output].ExternalColumns[Manager]"
+                      dataType="wstr"
+                      length="255"
+                      name="Manager" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Manager]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[Manager]"
+                      name="Manager" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Zaciągnięcie danych z excela 2.Paths[Data Conversion Output]"
+              endId="Package\Zaciągnięcie danych z excela 2\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Zaciągnięcie danych z excela 2.Paths[Excel Source Output]"
+              endId="Package\Zaciągnięcie danych z excela 2\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A38EF057-CB9D-4BD0-99BF-D007996D1887}"
+      DTS:From="Package\Stworzenie tabeli zamówienia w BAZA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Zaciągnięcie danych z excela" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{09BCEBED-8937-4C24-9FB3-80303A0A8F42}"
+      DTS:From="Package\Stworzenie tabeli zwroty w BAZA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Zaciągnięcie danych z excela 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{442B78DF-92E3-4011-8DA4-38C053EA13E2}"
+      DTS:From="Package\Stworzenie tabeli uzytkownicy w BAZA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Zaciągnięcie danych z excela 2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="257.333333333334,42.6666666666667"
+          Id="Package\Stworzenie tabeli zamówienia w BAZA"
+          TopLeft="5.5,10.6999999070168" />
+        <NodeLayout
+          Size="214.666666666667,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela"
+          TopLeft="29.6666663065553,111.666664768259" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="135.583333153278,53.3666665736834">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.2999981945754"
+              Start="0,0"
+              End="0,50.7999981945754">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.7999981945754" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="234.666666666667,42.6666666666667"
+          Id="Package\Stworzenie tabeli zwroty w BAZA"
+          TopLeft="301.249995511025,14.2999997442961" />
+        <NodeLayout
+          Size="260,42.6666666666667"
+          Id="Package\Stworzenie tabeli uzytkownicy w BAZA"
+          TopLeft="612.666659079492,14.5666683403651" />
+        <NodeLayout
+          Size="214.666666666667,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela 1"
+          TopLeft="309.249998143564,112.233331326445" />
+        <NodeLayout
+          Size="224,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela 2"
+          TopLeft="621.166663065553,116.533333085378" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="417.583330160628,56.9666664109627">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.2666649154823"
+              Start="0,0"
+              End="0,47.7666649154823">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.7666649154823" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="742.666659079492,57.2333350070318">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.49999601393938,59.2999980783463"
+              Start="0,0"
+              End="-9.49999601393938,51.7999980783463">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6499990391731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.6499990391731"
+                    Point2="0,29.6499990391731"
+                    Point3="-4,29.6499990391731" />
+                  <mssgle:LineSegment
+                    End="-5.49999601393938,29.6499990391731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.49999601393938,29.6499990391731"
+                    Point2="-9.49999601393938,29.6499990391731"
+                    Point3="-9.49999601393938,33.6499990391731" />
+                  <mssgle:LineSegment
+                    End="-9.49999601393938,51.7999980783463" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Zaciągnięcie danych z excela">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="204,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz"
+          TopLeft="324.166661836207,191.966663234035" />
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów"
+          TopLeft="327.916661780328,295.099994723201" />
+        <EdgeLayout
+          Id="Package\Zaciągnięcie danych z excela.Paths[Excel Source Output]"
+          TopLeft="425.708328474934,234.633329900702">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.4666648224991"
+              Start="0,0"
+              End="0,52.9666648224991">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.9666648224991" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="200.666666666667,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode"
+          TopLeft="125.416664797813,408.199992700815" />
+        <EdgeLayout
+          Id="Package\Zaciągnięcie danych z excela.Paths[Normalny i wysoki priorytet]"
+          TopLeft="425.249995113661,337.766661389868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-199.499996982515,70.4333313109477"
+              Start="0,0"
+              End="-199.499996982515,62.9333313109477">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.2166656554739" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.2166656554739"
+                    Point2="0,35.2166656554739"
+                    Point3="-4,35.2166656554739" />
+                  <mssgle:LineSegment
+                    End="-195.499996982515,35.2166656554739" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-195.499996982515,35.2166656554739"
+                    Point2="-199.499996982515,35.2166656554739"
+                    Point3="-199.499996982515,39.2166656554739" />
+                  <mssgle:LineSegment
+                    End="-199.499996982515,62.9333313109477" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-160.781385210007,40.2166656554739,122.0627734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="237.333333333334,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA"
+          TopLeft="132.083331365138,527.466667379538" />
+        <EdgeLayout
+          Id="Package\Zaciągnięcie danych z excela.Paths[Data Conversion Output]"
+          TopLeft="225.749998131146,450.866659367482">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.999999900659,76.6000080120563"
+              Start="0,0"
+              End="24.999999900659,69.1000080120563">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.3000040060281" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.3000040060281"
+                    Point2="0,38.3000040060281"
+                    Point3="4,38.3000040060281" />
+                  <mssgle:LineSegment
+                    End="20.999999900659,38.3000040060281" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.999999900659,38.3000040060281"
+                    Point2="24.999999900659,38.3000040060281"
+                    Point3="24.999999900659,42.3000040060281" />
+                  <mssgle:LineSegment
+                    End="24.999999900659,69.1000080120563" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Zaciągnięcie danych z excela 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz"
+          TopLeft="324.166661836207,191.966663234035" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela 1\Data Conversion"
+          TopLeft="348.666666666667,287.333333333333" />
+        <EdgeLayout
+          Id="Package\Zaciągnięcie danych z excela 1.Paths[Excel Source Output]"
+          TopLeft="426.74999758477,234.633329900702">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.7000034326317"
+              Start="0,0"
+              End="0,45.2000034326317">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.2000034326317" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="249.333333333334,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA"
+          TopLeft="345.333333333333,375.333333333333" />
+        <EdgeLayout
+          Id="Package\Zaciągnięcie danych z excela 1.Paths[Data Conversion Output]"
+          TopLeft="427.333333333333,330">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.6666666666666,45.3333333333333"
+              Start="0,0"
+              End="42.6666666666666,37.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.6666666666667"
+                    Point2="0,22.6666666666667"
+                    Point3="4,22.6666666666667" />
+                  <mssgle:LineSegment
+                    End="38.6666666666666,22.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.6666666666666,22.6666666666667"
+                    Point2="42.6666666666666,22.6666666666667"
+                    Point3="42.6666666666666,26.6666666666667" />
+                  <mssgle:LineSegment
+                    End="42.6666666666666,37.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Zaciągnięcie danych z excela 1\Tabela zamówienia Arkusz">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Zaciągnięcie danych z excela 2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz"
+          TopLeft="324.166661836207,191.966663234035" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela 2\Data Conversion"
+          TopLeft="340,292.666666666667" />
+        <EdgeLayout
+          Id="Package\Zaciągnięcie danych z excela 2.Paths[Excel Source Output]"
+          TopLeft="422.416664251437,234.633329900702">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.033336765965"
+              Start="0,0"
+              End="0,50.533336765965">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.533336765965" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Zaciągnięcie danych z excela 2\OLE DB Destination"
+          TopLeft="339.333333333333,401.333333333333" />
+        <EdgeLayout
+          Id="Package\Zaciągnięcie danych z excela 2.Paths[Data Conversion Output]"
+          TopLeft="422,335.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Zaciągnięcie danych z excela 2\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
