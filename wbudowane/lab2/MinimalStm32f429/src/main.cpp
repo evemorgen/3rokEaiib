@@ -16,7 +16,8 @@ BlinkLed blinkLeds[2] =
     { BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_RED, BLINK_ACTIVE_LOW },
   };
 
-BlinkLed green_led = {BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_LOW};
+//BlinkLed green_led = {BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_GREEN, BLINK_ACTIVE_LOW};
+BlinkLed green_led = {BLINK_PORT_NUMBER, BLINK_PIN_NUMBER_RED, BLINK_ACTIVE_LOW};
 
 int main(int argc, char* argv[])
 {
