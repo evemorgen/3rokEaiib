@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="3/18/2017 3:50:35 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{D5B00183-B88F-431E-881D-1D4DF65B17E9}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{D828664C-510B-4C3F-B070-1850833A0255}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\Mac\Home\Downloads\Sample - Superstore Sales (Excel).xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\Mac\Home\Downloads\Sample - Superstore Sales (Excel).xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -58,7 +58,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Stworzenie tabeli uzytkownicy w BAZA"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -75,7 +75,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Stworzenie tabeli zamówienia w BAZA"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2210,27 +2210,43 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="257.333333333334,42.6666666666667"
+          Size="259.853403141362,42.7225130890053"
+          Id="Package\Stworzenie tabeli uzytkownicy w BAZA"
+          TopLeft="612.666659079492,14.5666683403651" />
+        <NodeLayout
+          Size="259.853403141362,42.2198952879582"
           Id="Package\Stworzenie tabeli zamówienia w BAZA"
           TopLeft="5.5,10.6999999070168" />
         <NodeLayout
-          Size="214.666666666667,42.6666666666667"
+          Size="235.7277486911,42.2198952879582"
+          Id="Package\Stworzenie tabeli zwroty w BAZA"
+          TopLeft="301.249995511025,14.2999997442961" />
+        <NodeLayout
+          Size="214.617801047121,42.7225130890053"
           Id="Package\Zaciągnięcie danych z excela"
           TopLeft="29.6666663065553,111.666664768259" />
+        <NodeLayout
+          Size="214.617801047121,42.7225130890053"
+          Id="Package\Zaciągnięcie danych z excela 1"
+          TopLeft="309.249998143564,112.233331326445" />
+        <NodeLayout
+          Size="224.167539267016,42.7225130890053"
+          Id="Package\Zaciągnięcie danych z excela 2"
+          TopLeft="621.166663065553,116.533333085378" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="135.583333153278,53.3666665736834">
+          TopLeft="136.201134200398,52.9198951949749">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.2999981945754"
+              EndConnector="0,58.7467695732841"
               Start="0,0"
-              End="0,50.7999981945754">
+              End="0,51.2467695732841">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.7999981945754" />
+                    End="0,51.2467695732841" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2239,36 +2255,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="234.666666666667,42.6666666666667"
-          Id="Package\Stworzenie tabeli zwroty w BAZA"
-          TopLeft="301.249995511025,14.2999997442961" />
-        <NodeLayout
-          Size="260,42.6666666666667"
-          Id="Package\Stworzenie tabeli uzytkownicy w BAZA"
-          TopLeft="612.666659079492,14.5666683403651" />
-        <NodeLayout
-          Size="214.666666666667,42.6666666666667"
-          Id="Package\Zaciągnięcie danych z excela 1"
-          TopLeft="309.249998143564,112.233331326445" />
-        <NodeLayout
-          Size="224,42.6666666666667"
-          Id="Package\Zaciągnięcie danych z excela 2"
-          TopLeft="621.166663065553,116.533333085378" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="417.583330160628,56.9666664109627">
+          TopLeft="417.83638426185,56.5198950322542">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.2666649154823"
+              EndConnector="0,55.7134362941908"
               Start="0,0"
-              End="0,47.7666649154823">
+              End="0,48.2134362941908">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.7666649154823" />
+                    End="0,48.2134362941908" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2320,39 +2320,21 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="204,42.6666666666667"
+          Size="194.513089005236,42.7225130890053"
+          Id="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów"
+          TopLeft="327.916661780328,295.099994723201" />
+        <NodeLayout
+          Size="200.544502617802,42.7225130890053"
+          Id="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode"
+          TopLeft="125.416664797813,408.199992700815" />
+        <NodeLayout
+          Size="204.062827225131,42.7225130890053"
           Id="Package\Zaciągnięcie danych z excela\Tabela zamówienia Arkusz"
           TopLeft="324.166661836207,191.966663234035" />
         <NodeLayout
-          Size="194.666666666667,42.6666666666667"
-          Id="Package\Zaciągnięcie danych z excela\Rozdzielanie priorytetów"
-          TopLeft="327.916661780328,295.099994723201" />
-        <EdgeLayout
-          Id="Package\Zaciągnięcie danych z excela.Paths[Excel Source Output]"
-          TopLeft="425.708328474934,234.633329900702">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.4666648224991"
-              Start="0,0"
-              End="0,52.9666648224991">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.9666648224991" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="200.666666666667,42.6666666666667"
-          Id="Package\Zaciągnięcie danych z excela\Konwersja tekstu unicode"
-          TopLeft="125.416664797813,408.199992700815" />
+          Size="237.235602094241,42.7225130890053"
+          Id="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA"
+          TopLeft="132.083331365138,527.466667379538" />
         <EdgeLayout
           Id="Package\Zaciągnięcie danych z excela.Paths[Normalny i wysoki priorytet]"
           TopLeft="425.249995113661,337.766661389868">
@@ -2389,10 +2371,28 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="237.333333333334,42.6666666666667"
-          Id="Package\Zaciągnięcie danych z excela\Tabela zamówienia w bazie BAZA"
-          TopLeft="132.083331365138,527.466667379538" />
+        <EdgeLayout
+          Id="Package\Zaciągnięcie danych z excela.Paths[Excel Source Output]"
+          TopLeft="425.708328474934,234.633329900702">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.4666648224991"
+              Start="0,0"
+              End="0,52.9666648224991">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.9666648224991" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Zaciągnięcie danych z excela.Paths[Data Conversion Output]"
           TopLeft="225.749998131146,450.866659367482">
@@ -2545,6 +2545,19 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Zaciągnięcie danych z excela 2">
     <LayoutInfo>
@@ -2611,19 +2624,6 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Zaciągnięcie danych z excela 2\Tabela zamówienia Arkusz">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Zaciągnięcie danych z excela 1\Zapis do tabeli zwroty w bazie BAZA">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
