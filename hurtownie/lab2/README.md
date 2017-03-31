@@ -24,4 +24,5 @@ Hurtownie danych można tworzyć w kilku schematach:
      - w tych tabelach występują często **klucze zastępcze** (Dodajemy własne ID nawet jeżeli jest jakieś z systemu tranzakcyjnego. Uniezależniamy się od formatu bazy pierwotnej z której bierzemy dane)
   - dane zazwyczaj **są redundantne** (nie są normalizowane bo efektywność zapytań)
 
+![ERD](db.png)
 (tabela lokalizacja dodana w trakcie zajęć, jako dodatkowy rysunek. Odnosi się do personelu, w ten sposób możemy uzyskać schemat płatka śniegu)
