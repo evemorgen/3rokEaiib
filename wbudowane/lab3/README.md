@@ -12,12 +12,12 @@ Ponieważ nie mogłem się dogadać z tym chorym IDE, pracuję w układzie:
 ## Jak to uruchomić:
 1. Budujemy cały projekt w Eclipsie (meh)
 2. Sprawdzamy czy elf się przebudował (data modyfikacji pliku w ls -l)
-2. Wrzucamy na płytkę elfa za pomocą skrypciora
+3. Wrzucamy na płytkę elfa za pomocą skrypciora
 ``` ./skrypcior.sh stm32-uart2/Debug/STM32_UART_TEST.elf ```
-3. Podłączamy Usb-Serial-Converter
+4. Podłączamy Usb-Serial-Converter
   - GND - GND
   - RX - TX (**PD5**)
   - TX - RX (PD6)
-4. Restartujemy stma (Czarny guzior na płytce)
-5. Patrzymy czy dane przychodzą do cu (```sudo cu -l /dev/tty.PL2303-00001014 -s 9600``` u mnie przynajmniej)
+5. Restartujemy stma (Czarny guzior na płytce)
+6. Patrzymy czy dane przychodzą do cu (```sudo cu -l /dev/tty.PL2303-00001014 -s 9600``` u mnie przynajmniej)
 ![img](screen.png)
