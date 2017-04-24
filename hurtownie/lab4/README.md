@@ -24,7 +24,7 @@ dzieli się na:
       - rozwiązanie pośrednie, mieszanka MOLAP i ROLAP
 
 ### Istnieje taki byt jak "Kostka OLAP"
-![Olap Dice](http://www.elml.uzh.ch/preview/fois/DSSII/en/image/13_2_4_g9.jpg)
+![Olap Dice](http://www.elml.uzh.ch/preview/fois/DSSII/en/image/13_2_4_g9.jpg) <br>
 Operacje na kostce:
   - konsolidacja (roll-up)
   - Eksploracja ( drill-down)
@@ -32,9 +32,9 @@ Operacje na kostce:
   - selekcja (dice)
 
 
-porównanie MOLAP ROLAP
+porównanie MOLAP ROLAP <br>
 
-Model relacyjny
+Model relacyjny <br>
 | kw | miasto   | sprzedaż |
 |----|----------|----------|
 | 1  | Kraków   | 1000     |
@@ -47,7 +47,7 @@ Model relacyjny
 | 4  | Warszawa | 720      |
 | 1  | Cośtam   | 1000     |
 
-Model nie relacyjny (na kostce)
+Model nie relacyjny (na kostce) <br>
 | kw\ecna   | 1000   | 500      | 1000   | cena/rodzaj   |
 |-----------|--------|----------|--------|---------------|
 | 1         | 2000   | 2000     | ...    |               |
