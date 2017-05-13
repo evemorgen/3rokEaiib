@@ -35,24 +35,108 @@ Operacje na kostce:
 porównanie MOLAP ROLAP <br>
 
 Model relacyjny <br>
-| kw | miasto   | sprzedaż |
-|----|----------|----------|
-| 1  | Kraków   | 1000     |
-| 2  | Kraków   | 1000     |
-| 3  | Kraków   | 1500     |
-| 4  | Kraków   | 1720     |
-| 1  | Warszawa | 500      |
-| 2  | Warszawa | 2000     |
-| 3  | Warszawa | 2500     |
-| 4  | Warszawa | 720      |
-| 1  | Cośtam   | 1000     |
+<table>
+  <tr>
+    <th>kwartał</th>
+    <th>miasto</th>
+    <th>sprzedaż</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Kraków</td>
+    <td>1000</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Kraków</td>
+    <td>1000</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Kraków</td>
+    <td>1500</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Kraków</td>
+    <td>1720</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Warszawa</td>
+    <td>500</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Warszawa</td>
+    <td>2000</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Warszawa</td>
+    <td>2500</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Warszawa</td>
+    <td>720</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Cośtam</td>
+    <td>1000</td>
+  </tr>
+</table>
 
 Model nie relacyjny (na kostce) <br>
-| kw\ecna   | 1000   | 500      | 1000   | cena/rodzaj   |
-|-----------|--------|----------|--------|---------------|
-| 1         | 2000   | 2000     | ...    |               |
-| 2         |        |          |        |               |
-| 3         |        |          |        |               |
-| 4         |        |          |        |               |
-|2016    | 3000 | 2500 | 1000 |               |
-| kw\miasto | Kraków | Warszawa | Cośtam | miasto\rodzaj |
+<table>
+  <tr>
+    <th>kwartał\cena</th>
+    <th>1000</th>
+    <th>500</th>
+    <th>1500</th>
+    <th>cena/rodzaj</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2000</td>
+    <td>2000</td>
+    <td>...</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2016</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>kwartał\miasto</td>
+    <td>Kraków</td>
+    <td>Warszawa</td>
+    <td>Cośtam</td>
+    <td>miasto\rodzaj</td>
+  </tr>
+</table>
