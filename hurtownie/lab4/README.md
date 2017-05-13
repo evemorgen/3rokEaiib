@@ -140,3 +140,6 @@ Model nie relacyjny (na kostce) <br>
     <td>miasto\rodzaj</td>
   </tr>
 </table>
+
+Wizualizacja kostki na wykresie
+![ERD](scatter.png)
