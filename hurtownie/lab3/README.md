@@ -1,4 +1,4 @@
-# Hurtownie danych - lab 2
+# Hurtownie danych - lab 3
 
 Strona prowadzącego: [Hurtownie Sędziwy](http://galaxy.agh.edu.pl/~sedziwy/wordpress/?page_id=1436),
 hasło do treści: [`h12017`]()
@@ -37,6 +37,7 @@ hasło do treści: [`h12017`]()
     - optymalizacja hurtowni pod konkretne zapytania
 
 nie zapominamy o zachowaniu poziomu szczegółowości dla wszystkich tabel
+
 dane powinny być addytywne (powinny móc się dodawać)
-    - dobry przykład - cena brutto towaru
-    - zły przykład - stawka podatku wat
+- dobry przykład - cena brutto towaru
+- zły przykład - stawka podatku wat
