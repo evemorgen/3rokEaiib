@@ -92,3 +92,7 @@ ENV/
 *.beam
 *.dump
 hs-2007-16-a-*_jpg.jpg
+wbudowane/.metadata
+wbudowane/*/.metadata
+wbudowane/*/*/.*
+wbudowane/*/*/*/.*
