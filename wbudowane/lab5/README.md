@@ -3,7 +3,8 @@
 Labek polega na przyspieszeniu wpisywania wartości konkretnych bitów do pamięci, fan dynamicznie typowanych języków here, nie szanuje takich optymalizacji :P
 
 Zadanie 1: proszę wyznaczyć adres 8 bitu rejestru pod adresem 0x2000 0300.
-    - aye capitan, ```
+    - aye capitan,
+```
 [Desktop] cat bit_bang_theory.py                                               22:16:33
 ALIAS_BASE              = 0x22000000
 BIT_BAND_BASE           = 0x20000000
