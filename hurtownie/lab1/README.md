@@ -22,7 +22,7 @@ Właściwości **hurtowni danych**:
 3. nie ma potrzeby szybkiej aktualizacji danych
 4. dane trzymane w hurtowni są przetworzone
 5. bardzo złożone analitycznie zapytania `SQL`
-6. nie jest potrzebna wydajność dla wielu urzytkowników,
+6. nie jest potrzebna wydajność dla wielu użytkowników,
 7. potrzebna jest wydajność dla pojedyńczych zapytań
 8. Nic co wpadnie do hurtowni, z niej nie znika, archiwum nie jest czyszczone
 9. można kumulować dane, agregować, pomijać nie istotne
